@@ -17,3 +17,19 @@ jobs:
         go-version: 1.16
     - name: running unit test
       run: go test ./... -cover
+
+  build-push-docker:
+    name: build image and push docker hub
+    runs-on: ubuntu-latest
+    needs: unit-test
+    steps:
+      - uses: actions/checkout@v2
+      - name: build image
+        run: docker build -t 184572/altaecom:1.0
+      - name: login docker hub
+        uses: docker/login-actions@v1
+        with:
+          username: ${{secret.DOCKER_USERNAME}}
+          password: ${{secret.DOCKER_SECRET}}
+      - name: push docker registry
+        run: docker docker push 184572/altaecom:1.0

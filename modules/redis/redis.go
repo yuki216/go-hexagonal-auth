@@ -6,7 +6,7 @@ import (
 
 	log "github.com/sirupsen/logrus"
 
-	"go-hexagonal/config"
+	"go-hexagonal-auth/config"
 
 	"github.com/go-redis/redis/v8"
 )

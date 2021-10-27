@@ -1,37 +1,37 @@
 package admin
 
-//Service outgoing port for user
+//Service outgoing port for Admin
 type Service interface {
-	//FindUserByID If data not found will return nil without error
-	FindUserByID(id int) (*Admin, error)
+	//FindAdminByID If data not found will return nil without error
+	FindAdminByID(id int) (*Admin, error)
 
-	//FindUserByUsernameAndPassword If data not found will return nil
-	FindAdminByUsernameAndPassword(username string, password string) (*Admin, error)
+	//FindAdminByAdminnameAndPassword If data not found will return nil
+	FindAdminByAdminnameAndPassword(username string, password string) (*Admin, error)
 
-	//FindAllUser find all user with given specific page and row per page, will return empty slice instead of nil
-	FindAllUser(skip int, rowPerPage int) ([]Admin, error)
+	//FindAllAdmin find all Admin with given specific page and row per page, will return empty slice instead of nil
+	FindAllAdmin(skip int, rowPerPage int) ([]Admin, error)
 
-	//InsertUser Insert new User into storage
-	InsertUser(insertUserSpec InsertUserSpec, createdBy string) error
+	//InsertAdmin Insert new Admin into storage
+	InsertAdmin(insertAdminSpec InsertAdminSpec, createdBy string) error
 
-	//UpdateUser if data not found will return error
-	UpdateUser(id int, name string, modifiedBy string, currentVersion int) error
+	//UpdateAdmin if data not found will return error
+	UpdateAdmin(id int, name string, modifiedBy string, currentVersion int) error
 }
 
-//Repository ingoing port for user
+//Repository ingoing port for Admin
 type Repository interface {
-	//FindUserByID If data not found will return nil without error
-	FindUserByID(id int) (*Admin, error)
+	//FindAdminByID If data not found will return nil without error
+	FindAdminByID(id int) (*Admin, error)
 
-	//FindUserByUsernameAndPassword If data not found will return nil
-	FindUserByUsernameAndPassword(username string, password string) (*Admin, error)
+	//FindAdminByAdminnameAndPassword If data not found will return nil
+	FindAdminByAdminnameAndPassword(username string, password string) (*Admin, error)
 
-	//FindAllUser find all user with given specific page and row per page, will return empty slice instead of nil
-	FindAllUser(skip int, rowPerPage int) ([]Admin, error)
+	//FindAllAdmin find all Admin with given specific page and row per page, will return empty slice instead of nil
+	FindAllAdmin(skip int, rowPerPage int) ([]Admin, error)
 
-	//InsertUser Insert new User into storage
-	InsertUser(user Admin) error
+	//InsertAdmin Insert new Admin into storage
+	InsertAdmin(admin Admin) error
 
-	//UpdateUser if data not found will return error
-	UpdateUser(user Admin, currentVersion int) error
+	//UpdateAdmin if data not found will return error
+	UpdateAdmin(admin Admin, currentVersion int) error
 }

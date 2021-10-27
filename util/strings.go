@@ -2,6 +2,7 @@ package utils
 
 import (
 	"regexp"
+	"sync"
 	"time"
 	"unicode"
 
@@ -13,6 +14,7 @@ import (
 var (
 	emailRegex = regexp.MustCompile("^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$")
 )
+var lock = &sync.Mutex{}
 
 // ValidateEmail return true if email address has a valid format
 func ValidateEmail(email string) bool {
@@ -20,6 +22,8 @@ func ValidateEmail(email string) bool {
 }
 
 func ValidatePassword(s string) bool {
+	lock.Lock()
+	defer lock.Unlock()
 	letters := 0
 	var number, upper, special bool
 	for _, c := range s {
@@ -37,17 +41,23 @@ func ValidatePassword(s string) bool {
 }
 
 func HashPassword(password string) (string, error) {
+	lock.Lock()
+	defer lock.Unlock()
 	bytes, err := bcrypt.GenerateFromPassword([]byte(password), bcrypt.DefaultCost)
 	return string(bytes), err
 }
 
 func CheckPasswordHash(password, hash string) bool {
+	lock.Lock()
+	defer lock.Unlock()
 	err := bcrypt.CompareHashAndPassword([]byte(hash), []byte(password))
 	return err == nil
 }
 
 // DateString return string representation of a date pointer
 func DateString(dateTime *time.Time) string {
+	lock.Lock()
+	defer lock.Unlock()
 	if dateTime == nil {
 		return ""
 	}
@@ -56,6 +66,8 @@ func DateString(dateTime *time.Time) string {
 }
 
 func NullStringScan(value *string) string {
+	lock.Lock()
+	defer lock.Unlock()
 	if value == nil {
 		return ""
 	}

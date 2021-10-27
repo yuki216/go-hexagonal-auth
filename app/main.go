@@ -4,19 +4,20 @@ import (
 	"context"
 	"fmt"
 	"github.com/labstack/echo/v4/middleware"
-	"go-hexagonal-auth/config"
-
 	"go-hexagonal-auth/api"
 	userController "go-hexagonal-auth/api/v1/user"
-	userService "go-hexagonal-auth/business/user"
 	adminService "go-hexagonal-auth/business/admin"
+	userService "go-hexagonal-auth/business/user"
+	"go-hexagonal-auth/config"
+	adminRepository "go-hexagonal-auth/modules/admin"
 	migration "go-hexagonal-auth/modules/migration"
 	userRepository "go-hexagonal-auth/modules/user"
-	adminRepository "go-hexagonal-auth/modules/admin"
-
 
 	authController "go-hexagonal-auth/api/v1/auth"
 	authService "go-hexagonal-auth/business/auth"
+
+	mediaController "go-hexagonal-auth/api/v1/media"
+	mediaService "go-hexagonal-auth/business/media"
 
 	"os"
 	"os/signal"
@@ -86,6 +87,12 @@ func main() {
 	//initiate auth controller
 	authController := authController.NewController(authService, config)
 
+	//initiate auth service
+	mediaService := mediaService.NewService(config)
+
+	//initiate media
+	mediaController := mediaController.NewController(mediaService, config)
+
 	//create echo http
 	e := echo.New()
 	e.Use(middleware.CORSWithConfig(middleware.CORSConfig{
@@ -100,12 +107,13 @@ func main() {
 
 
 	//register API path and handler
-	api.RegisterPath(e, authController, userController, config)
+	api.RegisterPath(e, authController, userController,mediaController, config)
 
 	// run server
 	go func() {
 		address := fmt.Sprintf("%s", config.Server.Addr)
 
+		e.Static("/","public")
 		if err := e.Start(address); err != nil {
 			log.Info("shutting down the server")
 		}
@@ -124,3 +132,4 @@ func main() {
 		log.Fatal(err)
 	}
 }
+

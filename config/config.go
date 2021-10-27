@@ -88,7 +88,7 @@ type ResetPassword struct {
 
 
 func InitConfig() Config {
-	viper.SetConfigName("./config/.env")
+	viper.SetConfigName(".env")
 	if os.Getenv("ENV") == "staging" {
 		viper.SetConfigName(".env.yml-" + "staging")
 	}

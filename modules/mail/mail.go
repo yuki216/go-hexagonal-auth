@@ -2,8 +2,8 @@ package mail
 
 import (
 	"bytes"
-	"go-hexagonal/config"
-	"go-hexagonal/constants"
+	"go-hexagonal-auth/config"
+	"go-hexagonal-auth/constants"
 	"html/template"
 	"strings"
 

@@ -6,10 +6,10 @@ import (
 	"time"
 )
 
-//InsertUserSpec create user spec
-type InsertUserSpec struct {
+//InsertAdminSpec create Admin spec
+type InsertAdminSpec struct {
 	Name     string `validate:"required"`
-	Username string `validate:"required"`
+	Adminname string `validate:"required"`
 	Password string `validate:"required"`
 }
 
@@ -18,51 +18,51 @@ type service struct {
 	repository Repository
 }
 
-//NewService Construct user service object
+//NewService Construct Admin service object
 func NewService(repository Repository) Service {
 	return &service{
 		repository,
 	}
 }
 
-//FindUserByID Get user by given ID, return nil if not exist
-func (s *service) FindUserByID(id int) (*Admin, error) {
-	return s.repository.FindUserByID(id)
+//FindAdminByID Get Admin by given ID, return nil if not exist
+func (s *service) FindAdminByID(id int) (*Admin, error) {
+	return s.repository.FindAdminByID(id)
 }
 
 
-func (s *service) FindAdminByUsernameAndPassword(username string, password string) (*Admin, error) {
-	return s.repository.FindUserByUsernameAndPassword(username, password)
+func (s *service) FindAdminByAdminnameAndPassword(Adminname string, password string) (*Admin, error) {
+	return s.repository.FindAdminByAdminnameAndPassword(Adminname, password)
 }
 
-//FindAllUser Get all users , will be return empty array if no data or error occured
-func (s *service) FindAllUser(skip int, rowPerPage int) ([]Admin, error) {
+//FindAllAdmin Get all Admins , will be return empty array if no data or error occured
+func (s *service) FindAllAdmin(skip int, rowPerPage int) ([]Admin, error) {
 
-	user, err := s.repository.FindAllUser(skip, rowPerPage)
+	admin, err := s.repository.FindAllAdmin(skip, rowPerPage)
 	if err != nil {
 		return []Admin{}, err
 	}
 
-	return user, err
+	return admin, err
 }
 
-//InsertUser Create new user and store into database
-func (s *service) InsertUser(insertUserSpec InsertUserSpec, createdBy string) error {
-	err := validator.GetValidator().Struct(insertUserSpec)
+//InsertAdmin Create new Admin and store into database
+func (s *service) InsertAdmin(insertAdminSpec InsertAdminSpec, createdBy string) error {
+	err := validator.GetValidator().Struct(insertAdminSpec)
 	if err != nil {
 		return business.ErrInvalidSpec
 	}
 
-	user := NewAdmin(
+	Admin := NewAdmin(
 		1,
-		insertUserSpec.Name,
-		insertUserSpec.Username,
-		insertUserSpec.Password,
+		insertAdminSpec.Name,
+		insertAdminSpec.Adminname,
+		insertAdminSpec.Password,
 		createdBy,
 		time.Now(),
 	)
 
-	err = s.repository.InsertUser(user)
+	err = s.repository.InsertAdmin(Admin)
 	if err != nil {
 		return err
 	}
@@ -70,17 +70,17 @@ func (s *service) InsertUser(insertUserSpec InsertUserSpec, createdBy string) er
 	return nil
 }
 
-//UpdateUser will update found user, if not exists will be return error
-func (s *service) UpdateUser(id int, name string, modifiedBy string, currentVersion int) error {
+//UpdateAdmin will update found Admin, if not exists will be return error
+func (s *service) UpdateAdmin(id int, name string, modifiedBy string, currentVersion int) error {
 
-	user, err := s.repository.FindUserByID(id)
+	Admin, err := s.repository.FindAdminByID(id)
 	if err != nil {
 		return err
-	} else if user == nil {
+	} else if Admin == nil {
 		return business.ErrNotFound
 	}
 
-	modifiedUser := user.ModifyAdmin(name, time.Now(), modifiedBy)
+	modifiedAdmin := Admin.ModifyAdmin(name, time.Now(), modifiedBy)
 
-	return s.repository.UpdateUser(modifiedUser, currentVersion)
+	return s.repository.UpdateAdmin(modifiedAdmin, currentVersion)
 }

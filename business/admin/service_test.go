@@ -2,8 +2,8 @@ package admin_test
 
 import (
 	"go-hexagonal-auth/business"
-	"go-hexagonal-auth/business/user"
-	userMock "go-hexagonal-auth/business/user/mocks"
+	"go-hexagonal-auth/business/admin"
+	userMock "go-hexagonal-auth/business/admin/mocks"
 
 	"os"
 	"testing"
@@ -25,11 +25,11 @@ const (
 )
 
 var (
-	userService    user.Service
-	userRepository userMock.Repository
+	adminService    admin.Service
+	adminRepository userMock.Repository
 
-	userData       user.User
-	insertUserData user.InsertUserSpec
+	userData       admin.Admin
+	insertUserData admin.InsertAdminSpec
 )
 
 func TestMain(m *testing.M) {
@@ -39,9 +39,9 @@ func TestMain(m *testing.M) {
 
 func TestFindUserByID(t *testing.T) {
 	t.Run("Expect found the user", func(t *testing.T) {
-		userRepository.On("FindUserByID", mock.AnythingOfType("string")).Return(&userData, nil).Once()
+		adminRepository.On("FindAdminByID", mock.AnythingOfType("string")).Return(&userData, nil).Once()
 
-		user, err := userService.FindUserByID(id)
+		user, err := adminService.FindAdminByID(id)
 
 		assert.Nil(t, err)
 
@@ -55,9 +55,9 @@ func TestFindUserByID(t *testing.T) {
 	})
 
 	t.Run("Expect user not found", func(t *testing.T) {
-		userRepository.On("FindUserByID", mock.AnythingOfType("string")).Return(nil, business.ErrNotFound).Once()
+		adminRepository.On("FindAdminByID", mock.AnythingOfType("string")).Return(nil, business.ErrNotFound).Once()
 
-		user, err := userService.FindUserByID(id)
+		user, err := adminService.FindAdminByID(id)
 
 		assert.NotNil(t, err)
 
@@ -69,18 +69,18 @@ func TestFindUserByID(t *testing.T) {
 
 func TestInsertUserByID(t *testing.T) {
 	t.Run("Expect insert user success", func(t *testing.T) {
-		userRepository.On("InsertUser", mock.AnythingOfType("user.User"), mock.AnythingOfType("string")).Return(nil).Once()
+		adminRepository.On("InsertUser", mock.AnythingOfType("user.User"), mock.AnythingOfType("string")).Return(nil).Once()
 
-		err := userService.InsertUser(insertUserData, creator)
+		err := adminService.InsertAdmin(insertUserData, creator)
 
 		assert.Nil(t, err)
 
 	})
 
 	t.Run("Expect insert user not found", func(t *testing.T) {
-		userRepository.On("InsertUser", mock.AnythingOfType("user.User"), mock.AnythingOfType("string")).Return(business.ErrInternalServerError).Once()
+		adminRepository.On("InsertUser", mock.AnythingOfType("user.User"), mock.AnythingOfType("string")).Return(business.ErrInternalServerError).Once()
 
-		err := userService.InsertUser(insertUserData, creator)
+		err := adminService.InsertAdmin(insertUserData, creator)
 
 		assert.NotNil(t, err)
 
@@ -90,20 +90,20 @@ func TestInsertUserByID(t *testing.T) {
 
 func TestUpdateUserByID(t *testing.T) {
 	t.Run("Expect update user success", func(t *testing.T) {
-		userRepository.On("FindUserByID", mock.AnythingOfType("string")).Return(&userData, nil).Once()
-		userRepository.On("UpdateUser", mock.AnythingOfType("user.User"), mock.AnythingOfType("int")).Return(nil).Once()
+		adminRepository.On("FindAdminByID", mock.AnythingOfType("string")).Return(&userData, nil).Once()
+		adminRepository.On("UpdateAdmin", mock.AnythingOfType("user.User"), mock.AnythingOfType("int")).Return(nil).Once()
 
-		err := userService.UpdateUser(id, name, modifier, version)
+		err := adminService.UpdateAdmin(id, name, modifier, version)
 
 		assert.Nil(t, err)
 
 	})
 
 	t.Run("Expect update user failed", func(t *testing.T) {
-		userRepository.On("FindUserByID", mock.AnythingOfType("string")).Return(&userData, nil).Once()
-		userRepository.On("UpdateUser", mock.AnythingOfType("user.User"), mock.AnythingOfType("int")).Return(business.ErrInternalServerError).Once()
+		adminRepository.On("FindAdminByID", mock.AnythingOfType("string")).Return(&userData, nil).Once()
+		adminRepository.On("UpdateAdmin", mock.AnythingOfType("user.User"), mock.AnythingOfType("int")).Return(business.ErrInternalServerError).Once()
 
-		err := userService.UpdateUser(id, name, modifier, version)
+		err := adminService.UpdateAdmin(id, name, modifier, version)
 
 		assert.NotNil(t, err)
 
@@ -113,7 +113,7 @@ func TestUpdateUserByID(t *testing.T) {
 
 func setup() {
 
-	userData = user.NewUser(
+	userData = admin.NewAdmin(
 		id,
 		name,
 		username,
@@ -122,11 +122,11 @@ func setup() {
 		time.Now(),
 	)
 
-	insertUserData = user.InsertUserSpec{
+	insertUserData = admin.InsertAdminSpec{
 		Name:     name,
-		Username: username,
+		Adminname: username,
 		Password: password,
 	}
 
-	userService = user.NewService(&userRepository)
+	adminService = admin.NewService(&adminRepository)
 }

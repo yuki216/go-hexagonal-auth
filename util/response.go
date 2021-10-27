@@ -26,6 +26,9 @@ type Response struct {
 
 // JSONResponseWithErr is method for return http json err
 func (r *Response) JSONResponseWithErr(w http.ResponseWriter) {
+	lock.Lock()
+	defer lock.Unlock()
+
 	w.Header().Set(contentType, contentTypeValue)
 	w.Header().Set(xContentTypeOptions, xContentTypeOptionsValue)
 	w.WriteHeader(r.Code)
@@ -34,6 +37,9 @@ func (r *Response) JSONResponseWithErr(w http.ResponseWriter) {
 
 // JSONResponseWithErr is method for return http json
 func (r *Response) JSONResponse(w http.ResponseWriter) {
+	lock.Lock()
+	defer lock.Unlock()
+
 	w.Header().Set(contentType, contentTypeValue)
 	w.Header().Set(xContentTypeOptions, xContentTypeOptionsValue)
 	w.WriteHeader(r.Code)

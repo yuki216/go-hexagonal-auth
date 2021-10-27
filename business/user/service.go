@@ -1,6 +1,7 @@
 package user
 
 import (
+	"fmt"
 	"go-hexagonal-auth/business"
 	"go-hexagonal-auth/util/validator"
 	"time"
@@ -27,11 +28,13 @@ func NewService(repository Repository) Service {
 
 //FindUserByID Get user by given ID, return nil if not exist
 func (s *service) FindUserByID(id int) (*User, error) {
+	fmt.Println(id)
 	return s.repository.FindUserByID(id)
 }
 
 //FindUserByUsernameAndPassword Get user by given ID, return nil if not exist
 func (s *service) FindUserByUsernameAndPassword(username string, password string) (*User, error) {
+	fmt.Println("asdas")
 	return s.repository.FindUserByUsernameAndPassword(username, password)
 }
 

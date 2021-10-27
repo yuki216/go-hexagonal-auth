@@ -1,6 +1,7 @@
 package auth
 
 import (
+	"fmt"
 	"go-hexagonal-auth/api/v1/auth/request"
 	"go-hexagonal-auth/business"
 	"go-hexagonal-auth/business/admin"
@@ -20,7 +21,7 @@ type service struct {
 }
 
 //NewService Construct user service object
-func NewService(userService user.Service, adminService admin.Service, adminRepo   admin.Repository, userRepo   user.Repository, cfg        config.Config) Service {
+func NewService(userService user.Service, adminService admin.Service, adminRepo admin.Repository, userRepo user.Repository, cfg config.Config) Service {
 	return &service{
 		userService,
 		adminService,
@@ -34,7 +35,7 @@ func NewService(userService user.Service, adminService admin.Service, adminRepo 
 func (s *service) Login(username string, isAdmin bool) (*user.User, error) {
 	var result user.User
 	if isAdmin {
-		adminData, err := s.adminService.FindAdminByUsernameAndPassword(username, "")
+		adminData, err := s.adminService.FindAdminByAdminnameAndPassword(username, "")
 		if err != nil {
 			return nil, err
 		}
@@ -47,7 +48,9 @@ func (s *service) Login(username string, isAdmin bool) (*user.User, error) {
 
 
 	} else{
+		fmt.Println(username)
 		userData, err := s.userService.FindUserByUsernameAndPassword(username, "")
+		fmt.Println(err)
 		if err != nil {
 			return nil, err
 		}
@@ -80,7 +83,7 @@ func (s *service) RegisterAdmin(request request.RegisterAdminRequest) (*request.
 		Username:   request.Username,
 		Password:   pass,
 	}
-	err = s.adminRepo.InsertUser(AdminReq)
+	err = s.adminRepo.InsertAdmin(AdminReq)
 	if err != nil {
 		return nil,err
 	}

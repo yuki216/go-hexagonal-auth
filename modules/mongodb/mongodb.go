@@ -2,7 +2,7 @@ package mongodb
 
 import (
 	"context"
-	"go-hexagonal/config"
+	"go-hexagonal-auth/config"
 	"time"
 
 	"go.mongodb.org/mongo-driver/mongo"

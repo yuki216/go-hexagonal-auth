@@ -3,7 +3,8 @@
 package mocks
 
 import (
-	user "go-hexagonal/business/user"
+	"go-hexagonal-auth/business/admin"
+	user "go-hexagonal-auth/business/user"
 
 	mock "github.com/stretchr/testify/mock"
 )
@@ -59,6 +60,28 @@ func (_m *Service) FindUserByID(id int) (*user.User, error) {
 	return r0, r1
 }
 
+// FindUserByID provides a mock function with given fields: id
+func (_m *Service) FindAdminByID(id int) (*admin.Admin, error) {
+	ret := _m.Called(id)
+
+	var r0 *admin.Admin
+	if rf, ok := ret.Get(0).(func(int) *admin.Admin); ok {
+		r0 = rf(id)
+	} else {
+		if ret.Get(0) != nil {
+			r0 = ret.Get(0).(*admin.Admin)
+		}
+	}
+
+	var r1 error
+	if rf, ok := ret.Get(1).(func(int) error); ok {
+		r1 = rf(id)
+	} else {
+		r1 = ret.Error(1)
+	}
+
+	return r0, r1
+}
 // FindUserByUsernameAndPassword provides a mock function with given fields: username, password
 func (_m *Service) FindUserByUsernameAndPassword(username string, password string) (*user.User, error) {
 	ret := _m.Called(username, password)

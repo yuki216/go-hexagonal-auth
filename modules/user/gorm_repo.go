@@ -1,10 +1,10 @@
 package user
 
 import (
+	"fmt"
 	"go-hexagonal-auth/business/user"
-	"time"
-
 	"gorm.io/gorm"
+	"time"
 )
 
 //GormRepository The implementation of user.Repository object
@@ -70,20 +70,19 @@ func NewGormDBRepository(db *gorm.DB) *GormRepository {
 func (repo *GormRepository) FindUserByID(id int) (*user.User, error) {
 
 	var userData User
-
 	err := repo.DB.First(&userData, id).Error
 	if err != nil {
 		return nil, err
 	}
 
 	user := userData.ToUser()
-
 	return &user, nil
 }
 
 //FindUserByID If data not found will return nil without error
 func (repo *GormRepository) FindUserByUsernameAndPassword(username string, password string) (*user.User, error) {
 
+	fmt.Println(username)
 	var userData User
 
 	err := repo.DB.Where("username = ?", username).First(&userData).Error

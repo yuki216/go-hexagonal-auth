@@ -25,7 +25,10 @@ func NewController(service user.Service) *Controller {
 
 //GetItemByID Get item by ID echo handler
 func (controller *Controller) FindUserByID(c echo.Context) error {
-	id, _ := strconv.Atoi(c.Param("id"))
+	id, err := strconv.Atoi(c.Param("id"))
+	if err != nil {
+		return c.JSON(common.NewErrorBusinessResponse(err))
+	}
 
 	user, err := controller.service.FindUserByID(id)
 	if err != nil {

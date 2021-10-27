@@ -8,5 +8,5 @@ import (
 )
 
 func InitMigrate(db *gorm.DB) {
-	db.AutoMigrate(&user.User{}, &admin.Admin{})
+	db.AutoMigrate(&user.User{}, &admin.Admins{})
 }

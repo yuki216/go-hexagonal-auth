@@ -3,7 +3,8 @@
 package mocks
 
 import (
-	admin "go-hexagonal-auth/business/admin"
+	"fmt"
+	"go-hexagonal-auth/modules/user"
 
 	mock "github.com/stretchr/testify/mock"
 )
@@ -14,15 +15,15 @@ type Service struct {
 }
 
 // FindAllUser provides a mock function with given fields: skip, rowPerPage
-func (_m *Service) FindAllUser(skip int, rowPerPage int) ([]admin.Admin, error) {
+func (_m *Service) FindAllUser(skip int, rowPerPage int) ([]user.User, error) {
 	ret := _m.Called(skip, rowPerPage)
 
-	var r0 []admin.Admin
-	if rf, ok := ret.Get(0).(func(int, int) []admin.Admin); ok {
+	var r0 []user.User
+	if rf, ok := ret.Get(0).(func(int, int) []user.User); ok {
 		r0 = rf(skip, rowPerPage)
 	} else {
 		if ret.Get(0) != nil {
-			r0 = ret.Get(0).([]admin.Admin)
+			r0 = ret.Get(0).([]user.User)
 		}
 	}
 
@@ -37,21 +38,21 @@ func (_m *Service) FindAllUser(skip int, rowPerPage int) ([]admin.Admin, error) 
 }
 
 // FindUserByID provides a mock function with given fields: id
-func (_m *Service) FindUserByID(id int) (*admin.Admin, error) {
-	ret := _m.Called(id)
+func (_m *Service) Login(username string, is_admin bool) (*user.User, error) {
+	ret := _m.Called(username)
 
-	var r0 *admin.Admin
-	if rf, ok := ret.Get(0).(func(int) *admin.Admin); ok {
-		r0 = rf(id)
+	var r0 *user.User
+	if rf, ok := ret.Get(0).(func(string, bool) *user.User); ok {
+		r0 = rf(username, is_admin)
 	} else {
 		if ret.Get(0) != nil {
-			r0 = ret.Get(0).(*admin.Admin)
+			r0 = ret.Get(0).(*user.User)
 		}
 	}
 
 	var r1 error
-	if rf, ok := ret.Get(1).(func(int) error); ok {
-		r1 = rf(id)
+	if rf, ok := ret.Get(1).(func(string, bool) error); ok {
+		r1 = rf(username, is_admin)
 	} else {
 		r1 = ret.Error(1)
 	}
@@ -60,15 +61,15 @@ func (_m *Service) FindUserByID(id int) (*admin.Admin, error) {
 }
 
 // FindUserByUsernameAndPassword provides a mock function with given fields: username, password
-func (_m *Service) FindUserByUsernameAndPassword(username string, password string) (*admin.Admin, error) {
+func (_m *Service) FindUserByUsernameAndPassword(username string, password string) (*user.User, error) {
 	ret := _m.Called(username, password)
-
-	var r0 *admin.Admin
-	if rf, ok := ret.Get(0).(func(string, string) *admin.Admin); ok {
+	fmt.Println("ytytut")
+	var r0 *user.User
+	if rf, ok := ret.Get(0).(func(string, string) *user.User); ok {
 		r0 = rf(username, password)
 	} else {
 		if ret.Get(0) != nil {
-			r0 = ret.Get(0).(*admin.Admin)
+			r0 = ret.Get(0).(*user.User)
 		}
 	}
 
@@ -83,11 +84,12 @@ func (_m *Service) FindUserByUsernameAndPassword(username string, password strin
 }
 
 // InsertUser provides a mock function with given fields: insertUserSpec, createdBy
-func (_m *Service) InsertUser(insertUserSpec admin.InsertAdminSpec, createdBy string) error {
+//InsertUser(insertUserSpec InsertUserSpec, createdBy string) error
+func (_m *Service) InsertUser(insertUserSpec user.User, createdBy string) error {
 	ret := _m.Called(insertUserSpec, createdBy)
 
 	var r0 error
-	if rf, ok := ret.Get(0).(func(admin.InsertAdminSpec, string) error); ok {
+	if rf, ok := ret.Get(0).(func(user.User, string) error); ok {
 		r0 = rf(insertUserSpec, createdBy)
 	} else {
 		r0 = ret.Error(0)

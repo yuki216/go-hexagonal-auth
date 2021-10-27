@@ -52,8 +52,8 @@ jobs:
           SSH_HOST: ${{ secrets.SSH_HOST }}
         run: |
           mkdir -p ~/.ssh/
-          echo "$SSH_KEY" > ~/.ssh/alterra_academy_aws.pem
-          chmod 400 ~/.ssh/alterra_academy_aws.pem
+          echo "$SSH_KEY" > ~/.ssh/linuxserver.pem
+          chmod 400 ~/.ssh/linuxserver.pem
           cat >>~/.ssh/config <<END
           Host development
             HostName $SSH_HOST

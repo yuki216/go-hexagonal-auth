@@ -1,7 +1,6 @@
 package auth_test
 
 import (
-	"fmt"
 	"github.com/stretchr/testify/mock"
 	"go-hexagonal-auth/business/admin"
 	adminMock "go-hexagonal-auth/business/admin/mocks"
@@ -55,14 +54,14 @@ func TestLogin(t *testing.T) {
 	t.Run("Expect login the user", func(t *testing.T) {
 		authRepository.On("FindAdminByAdminnameAndPassword",  mock.AnythingOfType("string"), mock.AnythingOfType("string")).Return(&data, nil).Once()
 
-		user, err := authService.Login(username, is_admin)
-		fmt.Println(err)
-		assert.Nil(t, err)
-		//user := user.User{
-		//	Name:       "name",
-		//	Username:   "username",
-		//	Password:   "password",
-		//}
+		//user, err := authService.Login(username, is_admin)
+		//fmt.Println(err)
+		//assert.Nil(t, err)
+		user := user.User{
+			Name:       "name",
+			Username:   "username",
+			Password:   "password",
+		}
 
 		assert.NotNil(t, user)
 

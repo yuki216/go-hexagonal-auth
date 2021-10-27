@@ -28,7 +28,7 @@ jobs:
         env:
           CONFIG: ${{ secrets.APP_CONFIG }}
         run: |
-          echo "$CONFIG" > ~/.env.yml
+          echo "$CONFIG" > ./.env.yml
       - name: build image
         run: docker build -t 184572/altaecom:1.0
       - name: login docker hub
@@ -62,4 +62,4 @@ jobs:
             StrictHostKeyChecking=no
           END
       - name: Connect EC2 & Remove All Container & Pull from Registry & Start
-        run: ssh development 'docker rm -f $(docker ps -a -q) && docker pull 184572/altaecom:1.0 && docker run -d -p 9090:9090 --name=alta-api-auth 184572/altaecom:1.0
+        run: ssh development 'docker rm -f $(docker ps -a -q) || true && docker pull 184572/altaecom:1.0 && docker run -d -p 9090:9090 --name=alta-api-auth 184572/altaecom:1.0

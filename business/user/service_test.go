@@ -100,7 +100,7 @@ func TestUpdateUserByID(t *testing.T) {
 	})
 
 	t.Run("Expect update user failed", func(t *testing.T) {
-		userRepository.On("FindUserByID", mock.AnythingOfType("int")).Return(userData, nil).Once()
+		userRepository.On("FindUserByID", mock.AnythingOfType("int")).Return(&userData, nil).Once()
 		userRepository.On("UpdateUser", mock.AnythingOfType("user.User"), mock.AnythingOfType("int")).Return(business.ErrInternalServerError).Once()
 
 		err := userService.UpdateUser(id, name, modifier, version)

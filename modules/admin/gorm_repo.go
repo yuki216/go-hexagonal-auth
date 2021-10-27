@@ -1,6 +1,7 @@
 package admin
 
 import (
+	"fmt"
 	"go-hexagonal-auth/business/admin"
 	"time"
 
@@ -15,7 +16,7 @@ type GormRepository struct {
 type Admins struct {
 	ID         int       `gorm:"id;primaryKey;autoIncrement"`
 	Name       string    `gorm:"name"`
-	Adminname   string    `gorm:"email;index:idx_email,unique"`
+	Username   string    `gorm:"username;index:idx_email,unique"`
 	Password   string    `gorm:"password"`
 	CreatedAt  time.Time `gorm:"created_at"`
 	CreatedBy  string    `gorm:"created_by"`
@@ -43,7 +44,7 @@ func (col *Admins) ToAdmin() admin.Admin {
 
 	Admin.ID = col.ID
 	Admin.Name = col.Name
-	Admin.Username = col.Adminname
+	Admin.Username = col.Username
 	Admin.Password = col.Password
 	Admin.CreatedAt = col.CreatedAt
 	Admin.CreatedBy = col.CreatedBy
@@ -80,7 +81,7 @@ func (repo *GormRepository) FindAdminByAdminnameAndPassword(Adminname string, pa
 
 	var AdminData Admins
 
-	err := repo.DB.Where("Adminname = ?", Adminname).First(&AdminData).Error
+	err := repo.DB.Where("username = ?", Adminname).First(&AdminData).Error
 	if err != nil {
 		return nil, err
 	}
@@ -113,7 +114,7 @@ func (repo *GormRepository) InsertAdmin(admin admin.Admin) error {
 
 	AdminData := newAdmin(admin)
 	AdminData.ID = 0
-
+	fmt.Println(AdminData)
 	err := repo.DB.Create(AdminData).Error
 	if err != nil {
 		return err

@@ -67,6 +67,35 @@ func TestFindUserByID(t *testing.T) {
 	})
 }
 
+func TestFindUserByName(t *testing.T) {
+	t.Run("Expect found the user", func(t *testing.T) {
+		userRepository.On("FindUserByUsernameAndPassword",  mock.AnythingOfType("string"), mock.AnythingOfType("string")).Return(&data, nil).Once()
+
+		user, err := userService.FindUserByUsernameAndPassword(username, password)
+		assert.Nil(t, err)
+
+		assert.NotNil(t, user)
+
+		assert.Equal(t, id, user.ID)
+		assert.Equal(t, name, user.Name)
+		assert.Equal(t, username, user.Username)
+		assert.Equal(t, password, user.Password)
+
+	})
+
+	t.Run("Expect user not found", func(t *testing.T) {
+		userRepository.On("FindUserByUsernameAndPassword",  mock.AnythingOfType("string"), mock.AnythingOfType("string")).Return(nil, business.ErrNotFound).Once()
+
+		user, err := userService.FindUserByUsernameAndPassword(username, password)
+
+		assert.NotNil(t, err)
+
+		assert.Nil(t, user)
+
+		assert.Equal(t, err, business.ErrNotFound)
+	})
+}
+
 func TestInsertUserByID(t *testing.T) {
 	t.Run("Expect insert user success", func(t *testing.T) {
 		userRepository.On("InsertUser", mock.AnythingOfType("user.User"), mock.AnythingOfType("string")).Return(nil).Once()

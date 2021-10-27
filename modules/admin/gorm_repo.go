@@ -124,7 +124,7 @@ func (repo *GormRepository) InsertAdmin(admin admin.Admin) error {
 }
 
 //UpdateItem Update existing item in database
-func (repo *GormRepository) UpdateAdmin(admin admin.Admin, currentVersion int) error {
+func (repo *GormRepository) UpdateAdmin(admin admin.Admin) error {
 
 	AdminData := newAdmin(admin)
 

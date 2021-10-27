@@ -37,7 +37,7 @@ func (_m *Service) FindAllUser(skip int, rowPerPage int) ([]admin.Admin, error) 
 }
 
 // FindUserByID provides a mock function with given fields: id
-func (_m *Service) FindUserByID(id int) (*admin.Admin, error) {
+func (_m *Service) FindAdminByID(id int) (*admin.Admin, error) {
 	ret := _m.Called(id)
 
 	var r0 *admin.Admin
@@ -60,7 +60,7 @@ func (_m *Service) FindUserByID(id int) (*admin.Admin, error) {
 }
 
 // FindUserByUsernameAndPassword provides a mock function with given fields: username, password
-func (_m *Service) FindUserByUsernameAndPassword(username string, password string) (*admin.Admin, error) {
+func (_m *Service) FindAdminByAdminnameAndPassword(username string, password string) (*admin.Admin, error) {
 	ret := _m.Called(username, password)
 
 	var r0 *admin.Admin
@@ -83,7 +83,7 @@ func (_m *Service) FindUserByUsernameAndPassword(username string, password strin
 }
 
 // InsertUser provides a mock function with given fields: insertUserSpec, createdBy
-func (_m *Service) InsertUser(insertUserSpec admin.InsertAdminSpec, createdBy string) error {
+func (_m *Service) InsertAdmin(insertUserSpec admin.InsertAdminSpec, createdBy string) error {
 	ret := _m.Called(insertUserSpec, createdBy)
 
 	var r0 error
@@ -97,12 +97,12 @@ func (_m *Service) InsertUser(insertUserSpec admin.InsertAdminSpec, createdBy st
 }
 
 // UpdateUser provides a mock function with given fields: id, name, modifiedBy, currentVersion
-func (_m *Service) UpdateUser(id int, name string, modifiedBy string, currentVersion int) error {
-	ret := _m.Called(id, name, modifiedBy, currentVersion)
+func (_m *Service) UpdateAdmin(id int, name string, modifiedBy string) error {
+	ret := _m.Called(id, name, modifiedBy)
 
 	var r0 error
-	if rf, ok := ret.Get(0).(func(int, string, string, int) error); ok {
-		r0 = rf(id, name, modifiedBy, currentVersion)
+	if rf, ok := ret.Get(0).(func(int, string, string) error); ok {
+		r0 = rf(id, name, modifiedBy)
 	} else {
 		r0 = ret.Error(0)
 	}

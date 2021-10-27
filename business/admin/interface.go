@@ -15,7 +15,7 @@ type Service interface {
 	InsertAdmin(insertAdminSpec InsertAdminSpec, createdBy string) error
 
 	//UpdateAdmin if data not found will return error
-	UpdateAdmin(id int, name string, modifiedBy string, currentVersion int) error
+	UpdateAdmin(id int, name string, modifiedBy string) error
 }
 
 //Repository ingoing port for Admin
@@ -33,5 +33,5 @@ type Repository interface {
 	InsertAdmin(admin Admin) error
 
 	//UpdateAdmin if data not found will return error
-	UpdateAdmin(admin Admin, currentVersion int) error
+	UpdateAdmin(admin Admin) error
 }

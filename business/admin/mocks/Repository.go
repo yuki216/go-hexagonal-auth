@@ -94,12 +94,12 @@ func (_m *Repository) InsertAdmin(_a0 admin.Admin) error {
 	return r0
 }
 
-func (_m *Repository) UpdateAdmin(_a0 admin.Admin, currentVersion int) error {
-	ret := _m.Called(_a0, currentVersion)
+func (_m *Repository) UpdateAdmin(_a0 admin.Admin) error {
+	ret := _m.Called(_a0)
 
 	var r0 error
-	if rf, ok := ret.Get(0).(func(admin.Admin, int) error); ok {
-		r0 = rf(_a0, currentVersion)
+	if rf, ok := ret.Get(0).(func(admin.Admin) error); ok {
+		r0 = rf(_a0)
 	} else {
 		r0 = ret.Error(0)
 	}

@@ -71,7 +71,7 @@ func (s *service) InsertAdmin(insertAdminSpec InsertAdminSpec, createdBy string)
 }
 
 //UpdateAdmin will update found Admin, if not exists will be return error
-func (s *service) UpdateAdmin(id int, name string, modifiedBy string, currentVersion int) error {
+func (s *service) UpdateAdmin(id int, name string, modifiedBy string) error {
 
 	Admin, err := s.repository.FindAdminByID(id)
 	if err != nil {
@@ -82,5 +82,5 @@ func (s *service) UpdateAdmin(id int, name string, modifiedBy string, currentVer
 
 	modifiedAdmin := Admin.ModifyAdmin(name, time.Now(), modifiedBy)
 
-	return s.repository.UpdateAdmin(modifiedAdmin, currentVersion)
+	return s.repository.UpdateAdmin(modifiedAdmin)
 }

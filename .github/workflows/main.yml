@@ -27,7 +27,7 @@ jobs:
       - name: build image
         run: docker build -t 184572/altaecom:1.0
       - name: login docker hub
-        uses: docker/login-actions@v1
+        uses: docker/login-action@v1
         with:
           username: ${{secret.DOCKER_USERNAME}}
           password: ${{secret.DOCKER_SECRET}}

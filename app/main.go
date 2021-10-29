@@ -60,8 +60,6 @@ func main() {
 	//load config if available or set to default
 	config := config.InitConfig()
 
-
-	fmt.Println("test")
 	//initialize database connection based on given config
 	dbConnection := newDatabaseConnection(&config)
 

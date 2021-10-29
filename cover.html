@@ -1,0 +1,3018 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>common: Go Coverage Report</title>
+		<style>
+			body {
+				background: black;
+				color: rgb(80, 80, 80);
+			}
+			body, pre, #legend span {
+				font-family: Menlo, monospace;
+				font-weight: bold;
+			}
+			#topbar {
+				background: black;
+				position: fixed;
+				top: 0; left: 0; right: 0;
+				height: 42px;
+				border-bottom: 1px solid rgb(80, 80, 80);
+			}
+			#content {
+				margin-top: 50px;
+			}
+			#nav, #legend {
+				float: left;
+				margin-left: 10px;
+			}
+			#legend {
+				margin-top: 12px;
+			}
+			#nav {
+				margin-top: 10px;
+			}
+			#legend span {
+				margin: 0 5px;
+			}
+			.cov0 { color: rgb(192, 0, 0) }
+.cov1 { color: rgb(128, 128, 128) }
+.cov2 { color: rgb(116, 140, 131) }
+.cov3 { color: rgb(104, 152, 134) }
+.cov4 { color: rgb(92, 164, 137) }
+.cov5 { color: rgb(80, 176, 140) }
+.cov6 { color: rgb(68, 188, 143) }
+.cov7 { color: rgb(56, 200, 146) }
+.cov8 { color: rgb(44, 212, 149) }
+.cov9 { color: rgb(32, 224, 152) }
+.cov10 { color: rgb(20, 236, 155) }
+
+		</style>
+	</head>
+	<body>
+		<div id="topbar">
+			<div id="nav">
+				<select id="files">
+				
+				<option value="file0">go-hexagonal-auth/api/common/error_business_response.go (0.0%)</option>
+				
+				<option value="file1">go-hexagonal-auth/api/common/error_controller_response.go (0.0%)</option>
+				
+				<option value="file2">go-hexagonal-auth/api/common/success_response.go (0.0%)</option>
+				
+				<option value="file3">go-hexagonal-auth/api/middleware/jwt.go (0.0%)</option>
+				
+				<option value="file4">go-hexagonal-auth/api/paginator/meta.go (0.0%)</option>
+				
+				<option value="file5">go-hexagonal-auth/api/paginator/paginator.go (0.0%)</option>
+				
+				<option value="file6">go-hexagonal-auth/api/router.go (0.0%)</option>
+				
+				<option value="file7">go-hexagonal-auth/api/v1/auth/controller.go (0.0%)</option>
+				
+				<option value="file8">go-hexagonal-auth/api/v1/auth/response/login.go (0.0%)</option>
+				
+				<option value="file9">go-hexagonal-auth/api/v1/media/controller.go (0.0%)</option>
+				
+				<option value="file10">go-hexagonal-auth/api/v1/media/response/media.go (0.0%)</option>
+				
+				<option value="file11">go-hexagonal-auth/api/v1/user/controller.go (0.0%)</option>
+				
+				<option value="file12">go-hexagonal-auth/api/v1/user/request/insert_user.go (0.0%)</option>
+				
+				<option value="file13">go-hexagonal-auth/api/v1/user/response/get_all_user.go (0.0%)</option>
+				
+				<option value="file14">go-hexagonal-auth/api/v1/user/response/get_user.go (0.0%)</option>
+				
+				<option value="file15">go-hexagonal-auth/app/main.go (0.0%)</option>
+				
+				<option value="file16">go-hexagonal-auth/business/admin/admin.go (100.0%)</option>
+				
+				<option value="file17">go-hexagonal-auth/business/admin/mocks/Repository.go (63.0%)</option>
+				
+				<option value="file18">go-hexagonal-auth/business/admin/mocks/Service.go (0.0%)</option>
+				
+				<option value="file19">go-hexagonal-auth/business/admin/service.go (68.2%)</option>
+				
+				<option value="file20">go-hexagonal-auth/business/auth/mocks/Repository.go (0.0%)</option>
+				
+				<option value="file21">go-hexagonal-auth/business/auth/mocks/Service.go (81.8%)</option>
+				
+				<option value="file22">go-hexagonal-auth/business/auth/service.go (5.4%)</option>
+				
+				<option value="file23">go-hexagonal-auth/business/media/service.go (0.0%)</option>
+				
+				<option value="file24">go-hexagonal-auth/business/user/mocks/Repository.go (62.2%)</option>
+				
+				<option value="file25">go-hexagonal-auth/business/user/mocks/Service.go (0.0%)</option>
+				
+				<option value="file26">go-hexagonal-auth/business/user/service.go (69.2%)</option>
+				
+				<option value="file27">go-hexagonal-auth/business/user/user.go (66.7%)</option>
+				
+				<option value="file28">go-hexagonal-auth/config/config.go (0.0%)</option>
+				
+				<option value="file29">go-hexagonal-auth/constants/general.go (0.0%)</option>
+				
+				<option value="file30">go-hexagonal-auth/modules/admin/gorm_repo.go (0.0%)</option>
+				
+				<option value="file31">go-hexagonal-auth/modules/mail/mail.go (0.0%)</option>
+				
+				<option value="file32">go-hexagonal-auth/modules/migration/migration.go (0.0%)</option>
+				
+				<option value="file33">go-hexagonal-auth/modules/mongodb/mongodb.go (0.0%)</option>
+				
+				<option value="file34">go-hexagonal-auth/modules/redis/redis.go (0.0%)</option>
+				
+				<option value="file35">go-hexagonal-auth/modules/user/gorm_repo.go (0.0%)</option>
+				
+				<option value="file36">go-hexagonal-auth/util/response.go (0.0%)</option>
+				
+				<option value="file37">go-hexagonal-auth/util/strings.go (0.0%)</option>
+				
+				<option value="file38">go-hexagonal-auth/util/validator/validator.go (100.0%)</option>
+				
+				</select>
+			</div>
+			<div id="legend">
+				<span>not tracked</span>
+			
+				<span class="cov0">not covered</span>
+				<span class="cov8">covered</span>
+			
+			</div>
+		</div>
+		<div id="content">
+		
+		<pre class="file" id="file0" style="display: none">package common
+
+import (
+        "go-hexagonal-auth/business"
+        "net/http"
+)
+
+type errorBusinessResponseCode string
+
+const (
+        errInternalServerError errorBusinessResponseCode = "internal_server_error"
+        errHasBeenModified     errorBusinessResponseCode = "data_has_been modified"
+        errNotFound            errorBusinessResponseCode = "data_not_found"
+        errInvalidSpec         errorBusinessResponseCode = "invalid_spec"
+)
+
+//BusinessResponse default payload response
+type BusinessResponse struct {
+        Code    errorBusinessResponseCode `json:"code"`
+        Message string                    `json:"message"`
+        Data    interface{}               `json:"data"`
+}
+
+//NewErrorBusinessResponse Response return choosen http status like 400 bad request 422 unprocessable entity, ETC, based on responseCode
+func NewErrorBusinessResponse(err error) (int, BusinessResponse) <span class="cov0" title="0">{
+        return errorMapping(err)
+}</span>
+
+//errorMapping error for missing header key with given value
+func errorMapping(err error) (int, BusinessResponse) <span class="cov0" title="0">{
+        switch err </span>{
+        default:<span class="cov0" title="0">
+                return newInternalServerErrorResponse()</span>
+        case business.ErrNotFound:<span class="cov0" title="0">
+                return newNotFoundResponse()</span>
+        case business.ErrInvalidSpec:<span class="cov0" title="0">
+                return newValidationResponse(err.Error())</span>
+        case business.ErrHasBeenModified:<span class="cov0" title="0">
+                return newHasBeedModifiedResponse()</span>
+        }
+}
+
+//newInternalServerErrorResponse default internal server error response
+func newInternalServerErrorResponse() (int, BusinessResponse) <span class="cov0" title="0">{
+        return http.StatusInternalServerError, BusinessResponse{
+                errInternalServerError,
+                "Internal server error",
+                map[string]interface{}{},
+        }
+}</span>
+
+//newHasBeedModifiedResponse failed to validate request payload
+func newHasBeedModifiedResponse() (int, BusinessResponse) <span class="cov0" title="0">{
+        return http.StatusBadRequest, BusinessResponse{
+                errHasBeenModified,
+                "Data has been modified",
+                map[string]interface{}{},
+        }
+}</span>
+
+//newNotFoundResponse default not found error response
+func newNotFoundResponse() (int, BusinessResponse) <span class="cov0" title="0">{
+        return http.StatusNotFound, BusinessResponse{
+                errNotFound,
+                "Data Not found",
+                map[string]interface{}{},
+        }
+}</span>
+
+//newValidationResponse failed to validate request payload
+func newValidationResponse(message string) (int, BusinessResponse) <span class="cov0" title="0">{
+        return http.StatusBadRequest, BusinessResponse{
+                errInvalidSpec,
+                "Validation failed " + message,
+                map[string]interface{}{},
+        }
+}</span>
+</pre>
+		
+		<pre class="file" id="file1" style="display: none">package common
+
+import "net/http"
+
+type errorControllerResponseCode string
+
+const (
+        ErrBadRequest errorControllerResponseCode = "bad_request"
+        ErrForbidden  errorControllerResponseCode = "forbidden"
+)
+
+//ControllerResponse default payload response
+type ControllerResponse struct {
+        Code    errorControllerResponseCode `json:"code"`
+        Message string                      `json:"message"`
+        Data    interface{}                 `json:"data"`
+}
+
+//NewBadRequestResponse bad request format response
+func NewBadRequestResponse() (int, ControllerResponse) <span class="cov0" title="0">{
+        return http.StatusBadRequest, ControllerResponse{
+                ErrBadRequest,
+                "Bad request",
+                map[string]interface{}{},
+        }
+}</span>
+
+//NewForbiddenResponse default for Forbidden error response
+func NewForbiddenResponse() (int, ControllerResponse) <span class="cov0" title="0">{
+        return http.StatusForbidden, ControllerResponse{
+                ErrForbidden,
+                "Forbidden",
+                map[string]interface{}{},
+        }
+}</span>
+
+func NewErrorResponse(controll ControllerResponse)(int, ControllerResponse) <span class="cov0" title="0">{
+        return http.StatusBadRequest, ControllerResponse{
+                controll.Code,
+                controll.Message,
+                map[string]interface{}{},
+        }
+}</span>
+</pre>
+		
+		<pre class="file" id="file2" style="display: none">package common
+
+import "net/http"
+
+type SuccessResponseCode string
+
+//List of success response status
+const (
+        Success SuccessResponseCode = "success"
+)
+
+//SuccessResponse default payload response
+type SuccessResponse struct {
+        Code    SuccessResponseCode `json:"code"`
+        Message string              `json:"message"`
+        Data    interface{}         `json:"data"`
+}
+
+//NewSuccessResponse create new success payload
+func NewSuccessResponse(data interface{}) (int, SuccessResponse) <span class="cov0" title="0">{
+        return http.StatusOK, SuccessResponse{
+                Success,
+                "Success",
+                data,
+        }
+}</span>
+
+//NewSuccessResponse create new success payload
+func NewSuccessResponseWithoutData() (int, SuccessResponse) <span class="cov0" title="0">{
+        return http.StatusOK, SuccessResponse{
+                Success,
+                "Success",
+                map[string]interface{}{},
+        }
+}</span>
+</pre>
+		
+		<pre class="file" id="file3" style="display: none">package middleware
+
+import (
+        "github.com/golang-jwt/jwt"
+        "go-hexagonal-auth/config"
+
+        echo "github.com/labstack/echo/v4"
+        "github.com/labstack/echo/v4/middleware"
+)
+
+
+type JwtCustomClaims struct {
+        Name  string `json:"name"`
+        ID  int `json:"id"`
+        Email  string `json:"email"`
+        IsAdmin bool   `json:"is_admin"`
+        jwt.StandardClaims
+}
+
+var tokenCtxKey = &amp;contextKey{"token"}
+
+type contextKey struct {
+        name string
+}
+
+
+func JWTMiddleware(cfg config.Config ) echo.MiddlewareFunc <span class="cov0" title="0">{
+        return middleware.JWTWithConfig(middleware.JWTConfig{
+                SigningMethod: "HS256",
+                Claims: &amp;JwtCustomClaims{},
+                SigningKey:    []byte(cfg.JWTConfig.Secret),
+        })
+}</span>
+
+func isAdmin(next echo.HandlerFunc) echo.HandlerFunc <span class="cov0" title="0">{
+        return func(c echo.Context) error </span><span class="cov0" title="0">{
+                user := c.Get("user").(*jwt.Token)
+                claims := user.Claims.(jwt.MapClaims)
+                isAdmin := claims["isAdmin"].(bool)
+                if isAdmin == false </span><span class="cov0" title="0">{
+                        return echo.ErrUnauthorized
+                }</span>
+                <span class="cov0" title="0">return next(c)</span>
+        }
+}
+
+</pre>
+		
+		<pre class="file" id="file4" style="display: none">package paginator
+
+type Meta struct {
+        Page         int  `json:"page"`
+        RowPerPage   int  `json:"row_per_page"`
+        NextPage     bool `json:"next_page"`
+        PreviousPage bool `json:"previous_page"`
+}
+
+func (meta *Meta) BuildMeta(dataLength int, page int, rowPerPage int) <span class="cov0" title="0">{
+
+        rowPerPage = rowPerPage - 1
+
+        meta.Page = page
+        meta.RowPerPage = rowPerPage
+        meta.NextPage = false
+
+        if dataLength &gt; rowPerPage </span><span class="cov0" title="0">{
+                meta.NextPage = true
+        }</span>
+
+        <span class="cov0" title="0">if (dataLength-1 &lt;= rowPerPage) &amp;&amp; (page != 1) </span><span class="cov0" title="0">{
+                meta.PreviousPage = true
+        }</span>
+}
+</pre>
+		
+		<pre class="file" id="file5" style="display: none">package paginator
+
+import "strconv"
+
+//CreatePagination return (Skip, Page, RowPerPage) will be build pagination variable, used for paginate
+func CreatePagination(page string, rowPerPage string) (int, int, int) <span class="cov0" title="0">{
+        pageValue, err := strconv.Atoi(page)
+        if err != nil || pageValue &lt;= 0 </span><span class="cov0" title="0">{
+                pageValue = 1
+        }</span>
+
+        <span class="cov0" title="0">rowPerPageValue, err := strconv.Atoi(rowPerPage)
+        if err != nil || rowPerPageValue &lt;= 0 </span><span class="cov0" title="0">{
+                rowPerPageValue = 10
+        }</span>
+
+        <span class="cov0" title="0">skip := (pageValue * rowPerPageValue) - rowPerPageValue
+
+        rowPerPageValue = rowPerPageValue + 1
+
+        return skip, pageValue, rowPerPageValue</span>
+}
+</pre>
+		
+		<pre class="file" id="file6" style="display: none">package api
+
+import (
+        echo "github.com/labstack/echo/v4"
+        "go-hexagonal-auth/api/middleware"
+        "go-hexagonal-auth/api/v1/auth"
+        "go-hexagonal-auth/api/v1/media"
+        "go-hexagonal-auth/api/v1/user"
+        "go-hexagonal-auth/config"
+)
+
+//RegisterPath Register all API with routing path
+func RegisterPath(e *echo.Echo, authController *auth.Controller, userController *user.Controller, mediaController *media.Controller, cfg config.Config) <span class="cov0" title="0">{
+        if authController == nil || userController == nil ||mediaController == nil </span><span class="cov0" title="0">{
+                panic("Controller parameter cannot be nil")</span>
+        }
+
+        //authentication with Versioning endpoint
+        <span class="cov0" title="0">authV1 := e.Group("api/v1/auth")
+        authV1.POST("/login", authController.Login)
+        authV1.POST("/register-admin", authController.RegisterAdmin)
+        authV1.POST("/register-user", authController.RegisterUser)
+
+        //user with Versioning endpoint
+        userV1 := e.Group("api/v1/users")
+        userV1.Use(middleware.JWTMiddleware(cfg))
+        userV1.GET("/:id", userController.FindUserByID)
+        userV1.GET("", userController.FindAllUser)
+        userV1.POST("", userController.InsertUser)
+        userV1.PUT("/:id", userController.UpdateUser)
+
+
+        //user with Versioning endpoint
+        mediaV1 := e.Group("api/v1/media")
+        mediaV1.Use(middleware.JWTMiddleware(cfg))
+        mediaV1.POST("/upload", mediaController.MediaUpload)
+
+        //health check
+        e.GET("/health", func(c echo.Context) error </span><span class="cov0" title="0">{
+                return c.NoContent(200)
+        }</span>)
+}
+</pre>
+		
+		<pre class="file" id="file7" style="display: none">package auth
+
+import (
+        "github.com/golang-jwt/jwt"
+        "go-hexagonal-auth/api/common"
+        "go-hexagonal-auth/api/middleware"
+        "go-hexagonal-auth/api/v1/auth/request"
+        "go-hexagonal-auth/api/v1/auth/response"
+        "go-hexagonal-auth/business/auth"
+        "go-hexagonal-auth/config"
+        utils "go-hexagonal-auth/util"
+        "net/http"
+        "time"
+
+        echo "github.com/labstack/echo/v4"
+)
+
+//Controller Get item API controller
+type Controller struct {
+        service auth.Service
+        cfg config.Config
+}
+
+//NewController Construct item API controller
+func NewController(service auth.Service, cfg config.Config) *Controller <span class="cov0" title="0">{
+        return &amp;Controller{
+                service,
+                cfg,
+        }
+}</span>
+
+//Login by given username and password will return JWT token
+func (controller *Controller) Login(c echo.Context) error <span class="cov0" title="0">{
+        loginRequest := new(request.LoginRequest)
+
+        if err := c.Bind(loginRequest); err != nil </span><span class="cov0" title="0">{
+                return c.JSON(common.NewBadRequestResponse())
+        }</span>
+
+        <span class="cov0" title="0">user, err := controller.service.Login(loginRequest.Username, loginRequest.IsAdmin)
+
+        if !utils.CheckPasswordHash(loginRequest.Password, user.Password) </span><span class="cov0" title="0">{
+                return c.JSON(common.NewErrorResponse(common.ControllerResponse{
+                        Code:    common.ErrForbidden,
+                        Message: "Password Not Match",
+                        Data:    nil,
+                }))
+        }</span>
+
+        <span class="cov0" title="0">claims := &amp;middleware.JwtCustomClaims{
+                Name:  user.Name,
+                ID:  user.ID,
+                Email:  user.Username,
+                IsAdmin: loginRequest.IsAdmin,
+                StandardClaims: jwt.StandardClaims{
+                        ExpiresAt: time.Now().Add(time.Hour * 1).Unix() ,
+                },
+        }
+        token := jwt.NewWithClaims(jwt.SigningMethodHS256, claims)
+        generate, err := token.SignedString([]byte(controller.cfg.JWTConfig.Secret))
+        if err != nil </span><span class="cov0" title="0">{
+                return c.JSON(common.NewErrorResponse(common.ControllerResponse{
+                        Code:    common.ErrForbidden,
+                        Message: err.Error(),
+                        Data:    nil,
+                }))
+        }</span>
+
+        <span class="cov0" title="0">response := response.NewLoginResponse(generate)
+
+        return c.JSON(common.NewSuccessResponse(response))</span>
+}
+
+
+// InsertUser Create new user handler
+func (controller *Controller) RegisterAdmin(c echo.Context) error <span class="cov0" title="0">{
+        var insertUserRequest = new(request.RegisterAdminRequest)
+        if err := c.Bind(insertUserRequest); err != nil </span><span class="cov0" title="0">{
+                return c.JSON(common.NewErrorResponse(common.ControllerResponse{
+                        Code:    common.ErrBadRequest,
+                        Message: err.Error(),
+                        Data:    nil,
+                }))
+        }</span>
+
+        <span class="cov0" title="0">if insertUserRequest.Password != insertUserRequest.RePassword </span><span class="cov0" title="0">{
+                return c.JSON(common.NewErrorResponse(common.ControllerResponse{
+                        Code:    common.ErrBadRequest,
+                        Message: "Password &amp; Re type Password Not Match",
+                        Data:    nil,
+                }))
+        }</span>
+        <span class="cov0" title="0">admin, err := controller.service.RegisterAdmin(*insertUserRequest)
+        if err != nil </span><span class="cov0" title="0">{
+                return c.JSON(common.NewErrorResponse(common.ControllerResponse{
+                        Code:    common.ErrForbidden,
+                        Message: err.Error(),
+                        Data:    nil,
+                }))
+        }</span>
+
+        <span class="cov0" title="0">return c.JSON(common.NewSuccessResponse(admin))</span>
+}
+
+func (controller *Controller) RegisterUser(c echo.Context) error <span class="cov0" title="0">{
+        var insertUserRequest = new(request.RegisterUserRequest)
+
+        if err := c.Bind(insertUserRequest); err != nil </span><span class="cov0" title="0">{
+                return c.JSON(common.NewErrorResponse(common.ControllerResponse{
+                        Code:    common.ErrBadRequest,
+                        Message: err.Error(),
+                        Data:    nil,
+                }))
+        }</span>
+
+        <span class="cov0" title="0">if insertUserRequest.Password != insertUserRequest.RePassword </span><span class="cov0" title="0">{
+                return c.JSON(common.NewErrorResponse(common.ControllerResponse{
+                        Code:    common.ErrBadRequest,
+                        Message: "Password &amp; Re type Password Not Match",
+                        Data:    nil,
+                }))
+        }</span>
+
+        <span class="cov0" title="0">admin, err := controller.service.RegisterUser(*insertUserRequest)
+        if err != nil </span><span class="cov0" title="0">{
+                return c.JSON(common.NewErrorResponse(common.ControllerResponse{
+                        Code:    common.ErrForbidden,
+                        Message: err.Error(),
+                        Data:    nil,
+                }))
+        }</span>
+
+        <span class="cov0" title="0">return c.JSON(common.NewSuccessResponse(admin))</span>
+}
+
+func (controller *Controller) Logout(c echo.Context) error <span class="cov0" title="0">{
+        res := utils.Response{
+                Code: http.StatusOK,
+                Msg:  "Success Logout",
+        }
+
+        return c.JSON(http.StatusOK,res)
+}</pre>
+		
+		<pre class="file" id="file8" style="display: none">package response
+
+//Login response payload
+type LoginResponse struct {
+        Token string `json:"token"`
+}
+
+//NewLoginResponse construct LoginResponse
+func NewLoginResponse(token string) *LoginResponse <span class="cov0" title="0">{
+        var LoginResponse LoginResponse
+
+        LoginResponse.Token = token
+
+        return &amp;LoginResponse
+}</span>
+</pre>
+		
+		<pre class="file" id="file9" style="display: none">package media
+
+import (
+        "github.com/labstack/echo/v4"
+        "go-hexagonal-auth/api/common"
+        "go-hexagonal-auth/api/v1/media/response"
+        "go-hexagonal-auth/business/media"
+        "go-hexagonal-auth/config"
+)
+
+//Controller Get item API controller
+type Controller struct {
+        service media.Service
+        cfg config.Config
+}
+
+//NewController Construct item API controller
+func NewController(service media.Service, cfg config.Config) *Controller <span class="cov0" title="0">{
+        return &amp;Controller{
+                service,
+                cfg,
+        }
+}</span>
+
+//Login by given username and password will return JWT token
+func (controller *Controller) MediaUpload(c echo.Context) error <span class="cov0" title="0">{
+
+
+
+        form, err := c.FormFile("file")
+        if err != nil </span><span class="cov0" title="0">{
+                return c.JSON(common.NewErrorResponse(common.ControllerResponse{
+                        Code:    common.ErrBadRequest,
+                        Message: err.Error(),
+                        Data:    nil,
+                }))
+        }</span>
+
+        <span class="cov0" title="0">filename, err := controller.service.UploadMedia(form)
+
+        if err != nil </span><span class="cov0" title="0">{
+                return c.JSON(common.NewErrorResponse(common.ControllerResponse{
+                        Code:    common.ErrBadRequest,
+                        Message: err.Error(),
+                        Data:    nil,
+                }))
+        }</span>
+        <span class="cov0" title="0">response :=  response.NewMediaResponse(filename)
+
+        return c.JSON(common.NewSuccessResponse(response))</span>
+
+}</pre>
+		
+		<pre class="file" id="file10" style="display: none">package response
+
+//Login response payload
+type MediaResponse struct {
+        Filename string `json:"filename"`
+}
+
+//NewMediaResponse construct MediaResponse
+func NewMediaResponse(filename string) *MediaResponse <span class="cov0" title="0">{
+        var MediaResponse MediaResponse
+
+        MediaResponse.Filename = filename
+
+        return &amp;MediaResponse
+}</span>
+</pre>
+		
+		<pre class="file" id="file11" style="display: none">package user
+
+import (
+        "go-hexagonal-auth/api/common"
+        "go-hexagonal-auth/api/paginator"
+        "go-hexagonal-auth/api/v1/user/request"
+        "go-hexagonal-auth/api/v1/user/response"
+        "go-hexagonal-auth/business/user"
+        "strconv"
+
+        echo "github.com/labstack/echo/v4"
+)
+
+//Controller Get item API controller
+type Controller struct {
+        service user.Service
+}
+
+//NewController Construct item API controller
+func NewController(service user.Service) *Controller <span class="cov0" title="0">{
+        return &amp;Controller{
+                service,
+        }
+}</span>
+
+//GetItemByID Get item by ID echo handler
+func (controller *Controller) FindUserByID(c echo.Context) error <span class="cov0" title="0">{
+        id, err := strconv.Atoi(c.Param("id"))
+        if err != nil </span><span class="cov0" title="0">{
+                return c.JSON(common.NewErrorBusinessResponse(err))
+        }</span>
+
+        <span class="cov0" title="0">user, err := controller.service.FindUserByID(id)
+        if err != nil </span><span class="cov0" title="0">{
+                return c.JSON(common.NewErrorBusinessResponse(err))
+        }</span>
+
+        <span class="cov0" title="0">response := response.NewGetUserResponse(*user)
+
+        return c.JSON(common.NewSuccessResponse(response))</span>
+}
+
+//FindAllUser Find All User with pagination handler
+func (controller *Controller) FindAllUser(c echo.Context) error <span class="cov0" title="0">{
+
+        pageQueryParam := c.QueryParam("page")
+        rowPerPageQueryParam := c.QueryParam("row_per_page")
+
+        skip, page, rowPerPage := paginator.CreatePagination(pageQueryParam, rowPerPageQueryParam)
+
+        users, err := controller.service.FindAllUser(skip, rowPerPage)
+        if err != nil </span><span class="cov0" title="0">{
+                return c.JSON(common.NewErrorBusinessResponse(err))
+        }</span>
+
+        <span class="cov0" title="0">response := response.NewGetAllUserResponse(users, page, rowPerPage)
+
+        return c.JSON(common.NewSuccessResponse(response))</span>
+}
+
+// InsertUser Create new user handler
+func (controller *Controller) InsertUser(c echo.Context) error <span class="cov0" title="0">{
+        insertUserRequest := new(request.InsertUserRequest)
+
+        if err := c.Bind(insertUserRequest); err != nil </span><span class="cov0" title="0">{
+                return c.JSON(common.NewBadRequestResponse())
+        }</span>
+
+        <span class="cov0" title="0">err := controller.service.InsertUser(*insertUserRequest.ToUpsertUserSpec(), "creator")
+        if err != nil </span><span class="cov0" title="0">{
+                return c.JSON(common.NewErrorBusinessResponse(err))
+        }</span>
+
+        <span class="cov0" title="0">return c.JSON(common.NewSuccessResponseWithoutData())</span>
+}
+
+// UpdateUser update existing user handler
+func (controller *Controller) UpdateUser(c echo.Context) error <span class="cov0" title="0">{
+        id, _ := strconv.Atoi(c.Param("id"))
+
+        updateUserRequest := new(request.UpdateUserRequest)
+
+        if err := c.Bind(updateUserRequest); err != nil </span><span class="cov0" title="0">{
+                return c.JSON(common.NewBadRequestResponse())
+        }</span>
+
+        <span class="cov0" title="0">err := controller.service.UpdateUser(id, updateUserRequest.Name, "modifier", updateUserRequest.Version)
+        if err != nil </span><span class="cov0" title="0">{
+                return c.JSON(common.NewErrorBusinessResponse(err))
+        }</span>
+
+        <span class="cov0" title="0">return c.JSON(common.NewSuccessResponseWithoutData())</span>
+}
+</pre>
+		
+		<pre class="file" id="file12" style="display: none">package request
+
+import "go-hexagonal-auth/business/user"
+
+//InsertUserRequest create User request payload
+type InsertUserRequest struct {
+        Name     string `json:"name"`
+        Username string `json:"username"`
+        Password string `json:"password"`
+}
+
+//ToUpsertUserSpec convert into User.UpsertUserSpec object
+func (req *InsertUserRequest) ToUpsertUserSpec() *user.InsertUserSpec <span class="cov0" title="0">{
+
+        var insertUserSpec user.InsertUserSpec
+
+        insertUserSpec.Name = req.Name
+        insertUserSpec.Username = req.Username
+        insertUserSpec.Password = req.Password
+
+        return &amp;insertUserSpec
+}</span>
+</pre>
+		
+		<pre class="file" id="file13" style="display: none">package response
+
+import (
+        "go-hexagonal-auth/api/paginator"
+        "go-hexagonal-auth/business/user"
+)
+
+type getAllUserResponse struct {
+        Meta  paginator.Meta    `json:"meta"`
+        Users []GetUserResponse `json:"users"`
+}
+
+//NewGetAllUserResponse construct GetAllUserResponse
+func NewGetAllUserResponse(users []user.User, page int, rowPerPage int) getAllUserResponse <span class="cov0" title="0">{
+
+        var (
+                lenUsers = len(users)
+        )
+
+        getAllUserResponse := getAllUserResponse{}
+        getAllUserResponse.Meta.BuildMeta(lenUsers, page, rowPerPage)
+
+        for index, value := range users </span><span class="cov0" title="0">{
+                if index == getAllUserResponse.Meta.RowPerPage </span><span class="cov0" title="0">{
+                        continue</span>
+                }
+
+                <span class="cov0" title="0">var getUserResponse GetUserResponse
+
+                getUserResponse.ID = value.ID
+                getUserResponse.Name = value.Name
+                getUserResponse.Username = value.Username
+                getUserResponse.ModifiedAt = value.ModifiedAt
+                getUserResponse.Version = value.Version
+
+                getAllUserResponse.Users = append(getAllUserResponse.Users, getUserResponse)</span>
+        }
+
+        <span class="cov0" title="0">if getAllUserResponse.Users == nil </span><span class="cov0" title="0">{
+                getAllUserResponse.Users = []GetUserResponse{}
+        }</span>
+
+        <span class="cov0" title="0">return getAllUserResponse</span>
+}
+</pre>
+		
+		<pre class="file" id="file14" style="display: none">package response
+
+import (
+        "go-hexagonal-auth/business/user"
+        "time"
+)
+
+//GetUserResponse Get user by ID response payload
+type GetUserResponse struct {
+        ID         int       `json:"id"`
+        Name       string    `json:"name"`
+        Username   string    `json:"username"`
+        ModifiedAt time.Time `json:"modified_at"`
+        Version    int       `json:"version"`
+}
+
+//NewGetUserResponse construct GetUserResponse
+func NewGetUserResponse(user user.User) *GetUserResponse <span class="cov0" title="0">{
+        var getUserResponse GetUserResponse
+
+        getUserResponse.ID = user.ID
+        getUserResponse.Name = user.Name
+        getUserResponse.Username = user.Username
+        getUserResponse.ModifiedAt = user.ModifiedAt
+        getUserResponse.Version = user.Version
+
+        return &amp;getUserResponse
+}</span>
+</pre>
+		
+		<pre class="file" id="file15" style="display: none">package main
+
+import (
+        "context"
+        "fmt"
+        "github.com/labstack/echo/v4/middleware"
+        "go-hexagonal-auth/api"
+        userController "go-hexagonal-auth/api/v1/user"
+        adminService "go-hexagonal-auth/business/admin"
+        userService "go-hexagonal-auth/business/user"
+        "go-hexagonal-auth/config"
+        adminRepository "go-hexagonal-auth/modules/admin"
+        migration "go-hexagonal-auth/modules/migration"
+        userRepository "go-hexagonal-auth/modules/user"
+
+        authController "go-hexagonal-auth/api/v1/auth"
+        authService "go-hexagonal-auth/business/auth"
+
+        mediaController "go-hexagonal-auth/api/v1/media"
+        mediaService "go-hexagonal-auth/business/media"
+
+        "os"
+        "os/signal"
+        "time"
+
+        echo "github.com/labstack/echo/v4"
+        "github.com/labstack/gommon/log"
+        "gorm.io/driver/mysql"
+        "gorm.io/gorm"
+)
+
+func newDatabaseConnection(cfg *config.Config) *gorm.DB <span class="cov0" title="0">{
+
+        configDB := map[string]string{
+                "DB_Username": cfg.DB.Username,
+                "DB_Password": cfg.DB.Password,
+                "DB_Port":     cfg.DB.Port,
+                "DB_Host":     cfg.DB.Host,
+                "DB_Name":     cfg.DB.Name,
+        }
+
+        connectionString := fmt.Sprintf("%s:%s@tcp(%s:%s)/%s?charset=utf8&amp;parseTime=True&amp;loc=Local",
+                configDB["DB_Username"],
+                configDB["DB_Password"],
+                configDB["DB_Host"],
+                configDB["DB_Port"],
+                configDB["DB_Name"])
+
+        db, e := gorm.Open(mysql.Open(connectionString), &amp;gorm.Config{})
+        if e != nil </span><span class="cov0" title="0">{
+                panic(e)</span>
+        }
+
+        <span class="cov0" title="0">migration.InitMigrate(db)
+
+        return db</span>
+}
+
+func main() <span class="cov0" title="0">{
+        //load config if available or set to default
+        config := config.InitConfig()
+
+
+        fmt.Println("test")
+        //initialize database connection based on given config
+        dbConnection := newDatabaseConnection(&amp;config)
+
+        //initiate user repository
+        userRepo := userRepository.NewGormDBRepository(dbConnection)
+
+        //initiate user service
+        userService := userService.NewService(userRepo)
+
+        //initiate user controller
+        userController := userController.NewController(userService)
+
+        //initiate user repository
+        adminRepo := adminRepository.NewGormDBRepository(dbConnection)
+
+        //initiate user service
+        adminService := adminService.NewService(adminRepo)
+
+
+        //initiate auth service
+        authService := authService.NewService(userService, adminService, adminRepo, userRepo, config)
+
+        //initiate auth controller
+        authController := authController.NewController(authService, config)
+
+        //initiate auth service
+        mediaService := mediaService.NewService(config)
+
+        //initiate media
+        mediaController := mediaController.NewController(mediaService, config)
+
+        //create echo http
+        e := echo.New()
+        e.Use(middleware.CORSWithConfig(middleware.CORSConfig{
+                AllowOrigins: []string{ "http://localhost:9090"},
+                AllowHeaders: []string{echo.HeaderOrigin, echo.HeaderContentType, echo.HeaderAccept},
+        }))
+
+        e.Use(middleware.LoggerWithConfig(middleware.LoggerConfig{
+                Format: "method=${method}, uri=${uri}, status=${status}\n",
+        }))
+        //timeoutContext := time.Duration(config.Server.WriteTimeout) * time.Second
+
+
+        //register API path and handler
+        api.RegisterPath(e, authController, userController,mediaController, config)
+
+        // run server
+        go func() </span><span class="cov0" title="0">{
+                address := fmt.Sprintf("%s", config.Server.Addr)
+
+                e.Static("/","public")
+                if err := e.Start(address); err != nil </span><span class="cov0" title="0">{
+                        log.Info("shutting down the server")
+                }</span>
+        }()
+
+        // Wait for interrupt signal to gracefully shutdown the server with
+        <span class="cov0" title="0">quit := make(chan os.Signal)
+        signal.Notify(quit, os.Interrupt)
+        &lt;-quit
+
+        // a timeout of 10 seconds to shutdown the server
+        ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
+        defer cancel()
+
+        if err := e.Shutdown(ctx); err != nil </span><span class="cov0" title="0">{
+                log.Fatal(err)
+        }</span>
+}
+
+</pre>
+		
+		<pre class="file" id="file16" style="display: none">package admin
+
+import "time"
+
+//User product User that available to rent or sell
+type Admin struct {
+        ID         int
+        Name       string
+        Username   string
+        Password   string
+        CreatedAt  time.Time
+        CreatedBy  string
+        ModifiedAt time.Time
+        ModifiedBy string
+}
+
+//NewUser create new User
+func NewAdmin(
+        id int,
+        name string,
+        username string,
+        password string,
+        creator string,
+        createdAt time.Time) Admin <span class="cov8" title="1">{
+
+        return Admin{
+                ID:         id,
+                Name:       name,
+                Username:   username,
+                Password:   password,
+                CreatedAt:  createdAt,
+                CreatedBy:  creator,
+                ModifiedAt: createdAt,
+                ModifiedBy: creator,
+        }
+}</span>
+
+//ModifyUser update existing User data
+func (oldData *Admin) ModifyAdmin(newName string, modifiedAt time.Time, updater string) Admin <span class="cov8" title="1">{
+        return Admin{
+                ID:         oldData.ID,
+                Name:       newName,
+                Username:   oldData.Username,
+                Password:   oldData.Password,
+                CreatedAt:  oldData.CreatedAt,
+                CreatedBy:  oldData.CreatedBy,
+                ModifiedAt: modifiedAt,
+                ModifiedBy: updater,
+        }
+}</span>
+
+
+</pre>
+		
+		<pre class="file" id="file17" style="display: none">// Code generated by mockery v0.0.0-dev. DO NOT EDIT.
+
+package mocks
+
+import (
+        "fmt"
+        mock "github.com/stretchr/testify/mock"
+        "go-hexagonal-auth/business/admin"
+)
+
+// Repository is an autogenerated mock type for the Repository type
+type Repository struct {
+        mock.Mock
+}
+
+
+func (_m *Repository) FindAllAdmin(skip int, rowPerPage int) ([]admin.Admin, error) <span class="cov0" title="0">{
+        ret := _m.Called(skip, rowPerPage)
+
+        var r0 []admin.Admin
+        if rf, ok := ret.Get(0).(func(int, int) []admin.Admin); ok </span><span class="cov0" title="0">{
+                r0 = rf(skip, rowPerPage)
+        }</span> else<span class="cov0" title="0"> {
+                if ret.Get(0) != nil </span><span class="cov0" title="0">{
+                        r0 = ret.Get(0).([]admin.Admin)
+                }</span>
+        }
+
+        <span class="cov0" title="0">var r1 error
+        if rf, ok := ret.Get(1).(func(int, int) error); ok </span><span class="cov0" title="0">{
+                r1 = rf(skip, rowPerPage)
+        }</span> else<span class="cov0" title="0"> {
+                r1 = ret.Error(1)
+        }</span>
+
+        <span class="cov0" title="0">return r0, r1</span>
+}
+
+func (_m *Repository) FindAdminByID(id int) (*admin.Admin, error)<span class="cov8" title="1">{
+        ret := _m.Called(id)
+
+        var r0 *admin.Admin
+        if rf, ok := ret.Get(0).(func(int) *admin.Admin); ok </span><span class="cov0" title="0">{
+                r0 = rf(id)
+        }</span> else<span class="cov8" title="1"> {
+                if ret.Get(0) != nil </span><span class="cov8" title="1">{
+                        r0 = ret.Get(0).(*admin.Admin)
+                }</span>
+        }
+
+        <span class="cov8" title="1">var r1 error
+        if rf, ok := ret.Get(1).(func(int) error); ok </span><span class="cov0" title="0">{
+                r1 = rf(id)
+        }</span> else<span class="cov8" title="1"> {
+                r1 = ret.Error(1)
+        }</span>
+
+        <span class="cov8" title="1">return r0, r1</span>
+}
+
+func (_m *Repository) FindAdminByAdminnameAndPassword(username string, password string) (*admin.Admin, error) <span class="cov8" title="1">{
+        fmt.Println("OK")
+        ret := _m.Called(username, password)
+
+        var r0 *admin.Admin
+        if rf, ok := ret.Get(0).(func(string, string) *admin.Admin); ok </span><span class="cov0" title="0">{
+                r0 = rf(username, password)
+        }</span> else<span class="cov8" title="1"> {
+                if ret.Get(0) != nil </span><span class="cov8" title="1">{
+                        r0 = ret.Get(0).(*admin.Admin)
+                }</span>
+        }
+
+        <span class="cov8" title="1">var r1 error
+        if rf, ok := ret.Get(1).(func(string, string) error); ok </span><span class="cov0" title="0">{
+                r1 = rf(username, password)
+        }</span> else<span class="cov8" title="1"> {
+                r1 = ret.Error(1)
+        }</span>
+
+        <span class="cov8" title="1">return r0, r1</span>
+}
+
+func (_m *Repository) InsertAdmin(_a0 admin.Admin) error <span class="cov8" title="1">{
+        ret := _m.Called(_a0)
+
+        var r0 error
+        if rf, ok := ret.Get(0).(func(admin.Admin) error); ok </span><span class="cov0" title="0">{
+                r0 = rf(_a0)
+        }</span> else<span class="cov8" title="1"> {
+                r0 = ret.Error(0)
+        }</span>
+
+        <span class="cov8" title="1">return r0</span>
+}
+
+func (_m *Repository) UpdateAdmin(_a0 admin.Admin) error <span class="cov8" title="1">{
+        ret := _m.Called(_a0)
+
+        var r0 error
+        if rf, ok := ret.Get(0).(func(admin.Admin) error); ok </span><span class="cov0" title="0">{
+                r0 = rf(_a0)
+        }</span> else<span class="cov8" title="1"> {
+                r0 = ret.Error(0)
+        }</span>
+
+        <span class="cov8" title="1">return r0</span>
+}</pre>
+		
+		<pre class="file" id="file18" style="display: none">// Code generated by mockery v0.0.0-dev. DO NOT EDIT.
+
+package mocks
+
+import (
+        admin "go-hexagonal-auth/business/admin"
+
+        mock "github.com/stretchr/testify/mock"
+)
+
+// Service is an autogenerated mock type for the Service type
+type Service struct {
+        mock.Mock
+}
+
+// FindAllUser provides a mock function with given fields: skip, rowPerPage
+func (_m *Service) FindAllUser(skip int, rowPerPage int) ([]admin.Admin, error) <span class="cov0" title="0">{
+        ret := _m.Called(skip, rowPerPage)
+
+        var r0 []admin.Admin
+        if rf, ok := ret.Get(0).(func(int, int) []admin.Admin); ok </span><span class="cov0" title="0">{
+                r0 = rf(skip, rowPerPage)
+        }</span> else<span class="cov0" title="0"> {
+                if ret.Get(0) != nil </span><span class="cov0" title="0">{
+                        r0 = ret.Get(0).([]admin.Admin)
+                }</span>
+        }
+
+        <span class="cov0" title="0">var r1 error
+        if rf, ok := ret.Get(1).(func(int, int) error); ok </span><span class="cov0" title="0">{
+                r1 = rf(skip, rowPerPage)
+        }</span> else<span class="cov0" title="0"> {
+                r1 = ret.Error(1)
+        }</span>
+
+        <span class="cov0" title="0">return r0, r1</span>
+}
+
+// FindUserByID provides a mock function with given fields: id
+func (_m *Service) FindAdminByID(id int) (*admin.Admin, error) <span class="cov0" title="0">{
+        ret := _m.Called(id)
+
+        var r0 *admin.Admin
+        if rf, ok := ret.Get(0).(func(int) *admin.Admin); ok </span><span class="cov0" title="0">{
+                r0 = rf(id)
+        }</span> else<span class="cov0" title="0"> {
+                if ret.Get(0) != nil </span><span class="cov0" title="0">{
+                        r0 = ret.Get(0).(*admin.Admin)
+                }</span>
+        }
+
+        <span class="cov0" title="0">var r1 error
+        if rf, ok := ret.Get(1).(func(int) error); ok </span><span class="cov0" title="0">{
+                r1 = rf(id)
+        }</span> else<span class="cov0" title="0"> {
+                r1 = ret.Error(1)
+        }</span>
+
+        <span class="cov0" title="0">return r0, r1</span>
+}
+
+// FindUserByUsernameAndPassword provides a mock function with given fields: username, password
+func (_m *Service) FindAdminByAdminnameAndPassword(username string, password string) (*admin.Admin, error) <span class="cov0" title="0">{
+        ret := _m.Called(username, password)
+
+        var r0 *admin.Admin
+        if rf, ok := ret.Get(0).(func(string, string) *admin.Admin); ok </span><span class="cov0" title="0">{
+                r0 = rf(username, password)
+        }</span> else<span class="cov0" title="0"> {
+                if ret.Get(0) != nil </span><span class="cov0" title="0">{
+                        r0 = ret.Get(0).(*admin.Admin)
+                }</span>
+        }
+
+        <span class="cov0" title="0">var r1 error
+        if rf, ok := ret.Get(1).(func(string, string) error); ok </span><span class="cov0" title="0">{
+                r1 = rf(username, password)
+        }</span> else<span class="cov0" title="0"> {
+                r1 = ret.Error(1)
+        }</span>
+
+        <span class="cov0" title="0">return r0, r1</span>
+}
+
+// InsertUser provides a mock function with given fields: insertUserSpec, createdBy
+func (_m *Service) InsertAdmin(insertUserSpec admin.InsertAdminSpec, createdBy string) error <span class="cov0" title="0">{
+        ret := _m.Called(insertUserSpec, createdBy)
+
+        var r0 error
+        if rf, ok := ret.Get(0).(func(admin.InsertAdminSpec, string) error); ok </span><span class="cov0" title="0">{
+                r0 = rf(insertUserSpec, createdBy)
+        }</span> else<span class="cov0" title="0"> {
+                r0 = ret.Error(0)
+        }</span>
+
+        <span class="cov0" title="0">return r0</span>
+}
+
+// UpdateUser provides a mock function with given fields: id, name, modifiedBy, currentVersion
+func (_m *Service) UpdateAdmin(id int, name string, modifiedBy string) error <span class="cov0" title="0">{
+        ret := _m.Called(id, name, modifiedBy)
+
+        var r0 error
+        if rf, ok := ret.Get(0).(func(int, string, string) error); ok </span><span class="cov0" title="0">{
+                r0 = rf(id, name, modifiedBy)
+        }</span> else<span class="cov0" title="0"> {
+                r0 = ret.Error(0)
+        }</span>
+
+        <span class="cov0" title="0">return r0</span>
+}
+</pre>
+		
+		<pre class="file" id="file19" style="display: none">package admin
+
+import (
+        "go-hexagonal-auth/business"
+        "go-hexagonal-auth/util/validator"
+        "time"
+)
+
+//InsertAdminSpec create Admin spec
+type InsertAdminSpec struct {
+        Name     string `validate:"required"`
+        Adminname string `validate:"required"`
+        Password string `validate:"required"`
+}
+
+//=============== The implementation of those interface put below =======================
+type service struct {
+        repository Repository
+}
+
+//NewService Construct Admin service object
+func NewService(repository Repository) Service <span class="cov8" title="1">{
+        return &amp;service{
+                repository,
+        }
+}</span>
+
+//FindAdminByID Get Admin by given ID, return nil if not exist
+func (s *service) FindAdminByID(id int) (*Admin, error) <span class="cov8" title="1">{
+        return s.repository.FindAdminByID(id)
+}</span>
+
+
+func (s *service) FindAdminByAdminnameAndPassword(Adminname string, password string) (*Admin, error) <span class="cov8" title="1">{
+        return s.repository.FindAdminByAdminnameAndPassword(Adminname, password)
+}</span>
+
+//FindAllAdmin Get all Admins , will be return empty array if no data or error occured
+func (s *service) FindAllAdmin(skip int, rowPerPage int) ([]Admin, error) <span class="cov0" title="0">{
+
+        admin, err := s.repository.FindAllAdmin(skip, rowPerPage)
+        if err != nil </span><span class="cov0" title="0">{
+                return []Admin{}, err
+        }</span>
+
+        <span class="cov0" title="0">return admin, err</span>
+}
+
+//InsertAdmin Create new Admin and store into database
+func (s *service) InsertAdmin(insertAdminSpec InsertAdminSpec, createdBy string) error <span class="cov8" title="1">{
+        err := validator.GetValidator().Struct(insertAdminSpec)
+        if err != nil </span><span class="cov0" title="0">{
+                return business.ErrInvalidSpec
+        }</span>
+
+        <span class="cov8" title="1">Admin := NewAdmin(
+                1,
+                insertAdminSpec.Name,
+                insertAdminSpec.Adminname,
+                insertAdminSpec.Password,
+                createdBy,
+                time.Now(),
+        )
+
+        err = s.repository.InsertAdmin(Admin)
+        if err != nil </span><span class="cov8" title="1">{
+                return err
+        }</span>
+
+        <span class="cov8" title="1">return nil</span>
+}
+
+//UpdateAdmin will update found Admin, if not exists will be return error
+func (s *service) UpdateAdmin(id int, name string, modifiedBy string) error <span class="cov8" title="1">{
+
+        Admin, err := s.repository.FindAdminByID(id)
+        if err != nil </span><span class="cov0" title="0">{
+                return err
+        }</span> else<span class="cov8" title="1"> if Admin == nil </span><span class="cov0" title="0">{
+                return business.ErrNotFound
+        }</span>
+
+        <span class="cov8" title="1">modifiedAdmin := Admin.ModifyAdmin(name, time.Now(), modifiedBy)
+
+        return s.repository.UpdateAdmin(modifiedAdmin)</span>
+}
+</pre>
+		
+		<pre class="file" id="file20" style="display: none">// Code generated by mockery v0.0.0-dev. DO NOT EDIT.
+
+package mocks
+
+import (
+        mock "github.com/stretchr/testify/mock"
+        "go-hexagonal-auth/business/user"
+)
+
+// Repository is an autogenerated mock type for the Repository type
+type Repository struct {
+        mock.Mock
+}
+
+// FindAllUser provides a mock function with given fields: skip, rowPerPage
+func (_m *Repository) FindAllUser(skip int, rowPerPage int) ([]user.User, error) <span class="cov0" title="0">{
+        ret := _m.Called(skip, rowPerPage)
+
+        var r0 []user.User
+        if rf, ok := ret.Get(0).(func(int, int) []user.User); ok </span><span class="cov0" title="0">{
+                r0 = rf(skip, rowPerPage)
+        }</span> else<span class="cov0" title="0"> {
+                if ret.Get(0) != nil </span><span class="cov0" title="0">{
+                        r0 = ret.Get(0).([]user.User)
+                }</span>
+        }
+
+        <span class="cov0" title="0">var r1 error
+        if rf, ok := ret.Get(1).(func(int, int) error); ok </span><span class="cov0" title="0">{
+                r1 = rf(skip, rowPerPage)
+        }</span> else<span class="cov0" title="0"> {
+                r1 = ret.Error(1)
+        }</span>
+
+        <span class="cov0" title="0">return r0, r1</span>
+}
+
+// FindUserByID provides a mock function with given fields: id
+func (_m *Repository) FindUserByID(id int) (*user.User, error) <span class="cov0" title="0">{
+        ret := _m.Called(id)
+
+        var r0 *user.User
+        if rf, ok := ret.Get(0).(func(int) *user.User); ok </span><span class="cov0" title="0">{
+                r0 = rf(id)
+        }</span> else<span class="cov0" title="0"> {
+                if ret.Get(0) != nil </span><span class="cov0" title="0">{
+                        r0 = ret.Get(0).(*user.User)
+                }</span>
+        }
+
+        <span class="cov0" title="0">var r1 error
+        if rf, ok := ret.Get(1).(func(int) error); ok </span><span class="cov0" title="0">{
+                r1 = rf(id)
+        }</span> else<span class="cov0" title="0"> {
+                r1 = ret.Error(1)
+        }</span>
+
+        <span class="cov0" title="0">return r0, r1</span>
+}
+
+// FindUserByUsernameAndPassword provides a mock function with given fields: username, password
+func (_m *Repository) FindUserByUsernameAndPassword(username string, password string) (*user.User, error) <span class="cov0" title="0">{
+        ret := _m.Called(username, password)
+
+        var r0 *user.User
+        if rf, ok := ret.Get(0).(func(string, string) *user.User); ok </span><span class="cov0" title="0">{
+                r0 = rf(username, password)
+        }</span> else<span class="cov0" title="0"> {
+                if ret.Get(0) != nil </span><span class="cov0" title="0">{
+                        r0 = ret.Get(0).(*user.User)
+                }</span>
+        }
+
+        <span class="cov0" title="0">var r1 error
+        if rf, ok := ret.Get(1).(func(string, string) error); ok </span><span class="cov0" title="0">{
+                r1 = rf(username, password)
+        }</span> else<span class="cov0" title="0"> {
+                r1 = ret.Error(1)
+        }</span>
+
+        <span class="cov0" title="0">return r0, r1</span>
+}
+
+// InsertUser provides a mock function with given fields: _a0
+func (_m *Repository) InsertUser(_a0 user.User) error <span class="cov0" title="0">{
+        ret := _m.Called(_a0)
+
+        var r0 error
+        if rf, ok := ret.Get(0).(func(user.User) error); ok </span><span class="cov0" title="0">{
+                r0 = rf(_a0)
+        }</span> else<span class="cov0" title="0"> {
+                r0 = ret.Error(0)
+        }</span>
+
+        <span class="cov0" title="0">return r0</span>
+}
+
+// UpdateUser provides a mock function with given fields: _a0, currentVersion
+func (_m *Repository) UpdateUser(_a0 user.User, currentVersion int) error <span class="cov0" title="0">{
+        ret := _m.Called(_a0, currentVersion)
+
+        var r0 error
+        if rf, ok := ret.Get(0).(func(user.User, int) error); ok </span><span class="cov0" title="0">{
+                r0 = rf(_a0, currentVersion)
+        }</span> else<span class="cov0" title="0"> {
+                r0 = ret.Error(0)
+        }</span>
+
+        <span class="cov0" title="0">return r0</span>
+}
+</pre>
+		
+		<pre class="file" id="file21" style="display: none">// Code generated by mockery v0.0.0-dev. DO NOT EDIT.
+
+package mocks
+
+import (
+        "go-hexagonal-auth/api/v1/auth/request"
+        "go-hexagonal-auth/business/user"
+
+        mock "github.com/stretchr/testify/mock"
+)
+
+// Service is an autogenerated mock type for the Service type
+type Service struct {
+        mock.Mock
+}
+
+
+// FindUserByID provides a mock function with given fields: id
+func (_m *Service) Login(username string, is_admin bool) (*user.User, error) <span class="cov8" title="1">{
+        ret := _m.Called(username)
+
+        var r0 *user.User
+        if rf, ok := ret.Get(0).(func(string, bool) *user.User); ok </span><span class="cov0" title="0">{
+                r0 = rf(username, is_admin)
+        }</span> else<span class="cov8" title="1"> {
+                if ret.Get(0) != nil </span><span class="cov8" title="1">{
+                        r0 = ret.Get(0).(*user.User)
+                }</span>
+        }
+
+        <span class="cov8" title="1">var r1 error
+        if rf, ok := ret.Get(1).(func(string, bool) error); ok </span><span class="cov0" title="0">{
+                r1 = rf(username, is_admin)
+        }</span> else<span class="cov8" title="1"> {
+                r1 = ret.Error(1)
+        }</span>
+
+        <span class="cov8" title="1">return r0, r1</span>
+}
+
+func (_m *Service) RegisterAdmin(req request.RegisterAdminRequest) (*request.RegisterAdminRequest, error)  <span class="cov8" title="1">{
+
+        ret := _m.Called(req)
+
+        var r0 *request.RegisterAdminRequest
+        if rf, ok := ret.Get(0).(func(request.RegisterAdminRequest) *request.RegisterAdminRequest); ok </span><span class="cov0" title="0">{
+                r0 = rf(req)
+        }</span> else<span class="cov8" title="1"> {
+                if ret.Get(0) != nil </span><span class="cov8" title="1">{
+                        r0 = ret.Get(0).(*request.RegisterAdminRequest)
+                }</span>
+        }
+
+        <span class="cov8" title="1">var r1 error
+        if rf, ok := ret.Get(1).(func(request.RegisterAdminRequest) error); ok </span><span class="cov0" title="0">{
+                r1 = rf(req)
+        }</span> else<span class="cov8" title="1"> {
+                r1 = ret.Error(1)
+        }</span>
+
+        <span class="cov8" title="1">return r0, r1</span>
+}
+
+func (_m *Service) RegisterUser(req request.RegisterUserRequest) (*request.RegisterUserRequest, error)  <span class="cov8" title="1">{
+        ret := _m.Called(req)
+
+        var r0 *request.RegisterUserRequest
+        if rf, ok := ret.Get(0).(func(request.RegisterUserRequest) *request.RegisterUserRequest); ok </span><span class="cov0" title="0">{
+                r0 = rf(req)
+        }</span> else<span class="cov8" title="1"> {
+                if ret.Get(0) != nil </span><span class="cov8" title="1">{
+                        r0 = ret.Get(0).(*request.RegisterUserRequest)
+                }</span>
+        }
+
+        <span class="cov8" title="1">var r1 error
+        if rf, ok := ret.Get(1).(func(request.RegisterUserRequest) error); ok </span><span class="cov0" title="0">{
+                r1 = rf(req)
+        }</span> else<span class="cov8" title="1"> {
+                r1 = ret.Error(1)
+        }</span>
+
+        <span class="cov8" title="1">return r0, r1</span>
+}</pre>
+		
+		<pre class="file" id="file22" style="display: none">package auth
+
+import (
+        "fmt"
+        "go-hexagonal-auth/api/v1/auth/request"
+        "go-hexagonal-auth/business"
+        "go-hexagonal-auth/business/admin"
+        "go-hexagonal-auth/business/user"
+        "go-hexagonal-auth/config"
+        utils "go-hexagonal-auth/util"
+        "go-hexagonal-auth/util/validator"
+)
+
+//=============== The implementation of those interface put below =======================
+type service struct {
+        userService user.Service
+        adminService admin.Service
+        adminRepo   admin.Repository
+        userRepo   user.Repository
+        cfg        config.Config
+}
+
+//NewService Construct user service object
+func NewService(userService user.Service, adminService admin.Service, adminRepo admin.Repository, userRepo user.Repository, cfg config.Config) Service <span class="cov8" title="1">{
+        user := &amp;service{
+                userService,
+                adminService,
+                adminRepo,
+                userRepo,
+                cfg,
+        }
+        return user
+}</span>
+
+//Login by given user Username and Password, return error if not exist
+func (s *service) Login(username string, isAdmin bool) (*user.User, error) <span class="cov0" title="0">{
+        var result user.User
+        if isAdmin </span><span class="cov0" title="0">{
+                adminData, err := s.adminService.FindAdminByAdminnameAndPassword(username, "")
+                if err != nil </span><span class="cov0" title="0">{
+                        return nil, err
+                }</span>
+
+                <span class="cov0" title="0">result = user.User{
+                        Name:       adminData.Name,
+                        Username:   adminData.Username,
+                        Password:   adminData.Password,
+                }</span>
+
+
+        } else<span class="cov0" title="0">{
+                fmt.Println(username)
+                userData, err := s.userService.FindUserByUsernameAndPassword(username, "")
+                fmt.Println(err)
+                if err != nil </span><span class="cov0" title="0">{
+                        return nil, err
+                }</span>
+
+                <span class="cov0" title="0">result = user.User{
+                        Name:       userData.Name,
+                        Username:   userData.Username,
+                        Password:   userData.Password,
+                }</span>
+        }
+
+
+
+
+        <span class="cov0" title="0">return &amp;result, nil</span>
+}
+
+func (s *service) RegisterAdmin(request request.RegisterAdminRequest) (*request.RegisterAdminRequest, error)  <span class="cov0" title="0">{
+
+        err := validator.GetValidator().Struct(request)
+        if err != nil </span><span class="cov0" title="0">{
+                return nil,business.ErrInvalidSpec
+        }</span>
+    <span class="cov0" title="0">pass, err :=utils.HashPassword(request.Password)
+        if err != nil </span><span class="cov0" title="0">{
+                return nil,business.ErrInvalidSpec
+        }</span>
+        <span class="cov0" title="0">AdminReq := admin.Admin{
+                Name:       request.Name,
+                Username:   request.Username,
+                Password:   pass,
+        }
+        err = s.adminRepo.InsertAdmin(AdminReq)
+        if err != nil </span><span class="cov0" title="0">{
+                return nil,err
+        }</span>
+
+        <span class="cov0" title="0">return &amp;request,nil</span>
+}
+
+func (s *service) RegisterUser(request request.RegisterUserRequest) (*request.RegisterUserRequest, error)  <span class="cov0" title="0">{
+        err := validator.GetValidator().Struct(request)
+        if err != nil </span><span class="cov0" title="0">{
+                return nil,business.ErrInvalidSpec
+        }</span>
+
+        <span class="cov0" title="0">pass, err :=utils.HashPassword(request.Password)
+        if err != nil </span><span class="cov0" title="0">{
+                return nil,business.ErrInvalidSpec
+        }</span>
+
+        <span class="cov0" title="0">UserReq := user.User{
+                Name:       request.Name,
+                Username:   request.Username,
+                Password:   pass,
+                Address: request.Address,
+        }
+        err = s.userRepo.InsertUser(UserReq)
+        if err != nil </span><span class="cov0" title="0">{
+                return nil,err
+        }</span>
+
+        <span class="cov0" title="0">return &amp;request,nil</span>
+}</pre>
+		
+		<pre class="file" id="file23" style="display: none">package media
+
+import (
+        "fmt"
+        "go-hexagonal-auth/config"
+        "io"
+        "mime/multipart"
+        "os"
+        "path/filepath"
+        "time"
+)
+
+//=============== The implementation of those interface put below =======================
+type service struct {
+        cfg        config.Config
+}
+
+//NewService Construct user service object
+func NewService( cfg config.Config) Service <span class="cov0" title="0">{
+        return &amp;service{
+                cfg,
+        }
+}</span>
+
+//Login by given user Username and Password, return error if not exist
+func (s *service) UploadMedia(file *multipart.FileHeader) (string, error) <span class="cov0" title="0">{
+        var filename =""
+
+        currentTime := time.Now()
+
+        alias := currentTime.Format("20060102150405000000")+"_image"
+
+        uploadedFile, err := file.Open()
+        if err != nil </span><span class="cov0" title="0">{
+                return "", err
+        }</span>
+        <span class="cov0" title="0">defer uploadedFile.Close()
+
+        dir, err := os.Getwd()
+        if err != nil </span><span class="cov0" title="0">{
+                return "", err
+        }</span>
+
+        <span class="cov0" title="0">filename = file.Filename
+        if alias != "" </span><span class="cov0" title="0">{
+                filename = fmt.Sprintf("%s%s", alias, filepath.Ext(file.Filename))
+        }</span>
+        <span class="cov0" title="0">folder := "public/products"
+        if _, err := os.Stat(dir+"/public/products/"+currentTime.Format("2006-01-02")); os.IsNotExist(err) </span><span class="cov0" title="0">{
+                err := os.Mkdir(dir+"//public//products//"+currentTime.Format("2006-01-02"), os.ModePerm)
+                if err != nil </span><span class="cov0" title="0">{
+                        return "", err
+                }</span>
+                <span class="cov0" title="0">folder = folder+"/"+currentTime.Format("2006-01-02")</span>
+        }
+
+        <span class="cov0" title="0">fileLocation := filepath.Join(dir, folder, filename)
+        targetFile, err := os.OpenFile(fileLocation, os.O_WRONLY|os.O_CREATE, 0666)
+        if err != nil </span><span class="cov0" title="0">{
+                return "", err
+        }</span>
+        <span class="cov0" title="0">defer targetFile.Close()
+
+        if _, err := io.Copy(targetFile, uploadedFile); err != nil </span><span class="cov0" title="0">{
+                return "", err
+        }</span>
+
+        <span class="cov0" title="0">return "/public/products/"+currentTime.Format("2006-01-02")+"/"+filename, nil</span>
+}
+</pre>
+		
+		<pre class="file" id="file24" style="display: none">// Code generated by mockery v0.0.0-dev. DO NOT EDIT.
+
+package mocks
+
+import (
+        user "go-hexagonal-auth/business/user"
+
+        mock "github.com/stretchr/testify/mock"
+)
+
+// Repository is an autogenerated mock type for the Repository type
+type Repository struct {
+        mock.Mock
+}
+
+// FindAllUser provides a mock function with given fields: skip, rowPerPage
+func (_m *Repository) FindAllUser(skip int, rowPerPage int) ([]user.User, error) <span class="cov0" title="0">{
+        ret := _m.Called(skip, rowPerPage)
+
+        var r0 []user.User
+        if rf, ok := ret.Get(0).(func(int, int) []user.User); ok </span><span class="cov0" title="0">{
+                r0 = rf(skip, rowPerPage)
+        }</span> else<span class="cov0" title="0"> {
+                if ret.Get(0) != nil </span><span class="cov0" title="0">{
+                        r0 = ret.Get(0).([]user.User)
+                }</span>
+        }
+
+        <span class="cov0" title="0">var r1 error
+        if rf, ok := ret.Get(1).(func(int, int) error); ok </span><span class="cov0" title="0">{
+                r1 = rf(skip, rowPerPage)
+        }</span> else<span class="cov0" title="0"> {
+                r1 = ret.Error(1)
+        }</span>
+
+        <span class="cov0" title="0">return r0, r1</span>
+}
+
+// FindUserByID provides a mock function with given fields: id
+func (_m *Repository) FindUserByID(id int) (*user.User, error) <span class="cov8" title="1">{
+        ret := _m.Called(id)
+        var r0 *user.User
+        if rf, ok := ret.Get(0).(func(int) *user.User); ok </span><span class="cov0" title="0">{
+                r0 = rf(id)
+        }</span> else<span class="cov8" title="1"> {
+                if ret.Get(0) != nil </span><span class="cov8" title="1">{
+                        r0 = ret.Get(0).(*user.User)
+                }</span>
+        }
+
+        <span class="cov8" title="1">var r1 error
+        if rf, ok := ret.Get(1).(func(int) error); ok </span><span class="cov0" title="0">{
+                r1 = rf(id)
+        }</span> else<span class="cov8" title="1"> {
+                r1 = ret.Error(1)
+        }</span>
+        <span class="cov8" title="1">return r0, r1</span>
+}
+
+// FindUserByUsernameAndPassword provides a mock function with given fields: username, password
+func (_m *Repository) FindUserByUsernameAndPassword(username string, password string) (*user.User, error) <span class="cov8" title="1">{
+        ret := _m.Called(username, password)
+
+        var r0 *user.User
+        if rf, ok := ret.Get(0).(func(string, string) *user.User); ok </span><span class="cov0" title="0">{
+                r0 = rf(username, password)
+        }</span> else<span class="cov8" title="1"> {
+                if ret.Get(0) != nil </span><span class="cov8" title="1">{
+                        r0 = ret.Get(0).(*user.User)
+                }</span>
+        }
+
+        <span class="cov8" title="1">var r1 error
+        if rf, ok := ret.Get(1).(func(string, string) error); ok </span><span class="cov0" title="0">{
+                r1 = rf(username, password)
+        }</span> else<span class="cov8" title="1"> {
+                r1 = ret.Error(1)
+        }</span>
+
+        <span class="cov8" title="1">return r0, r1</span>
+}
+
+// InsertUser provides a mock function with given fields: _a0
+func (_m *Repository) InsertUser(_a0 user.User) error <span class="cov8" title="1">{
+        ret := _m.Called(_a0)
+
+        var r0 error
+        if rf, ok := ret.Get(0).(func(user.User) error); ok </span><span class="cov0" title="0">{
+                r0 = rf(_a0)
+        }</span> else<span class="cov8" title="1"> {
+                r0 = ret.Error(0)
+        }</span>
+
+        <span class="cov8" title="1">return r0</span>
+}
+
+// UpdateUser provides a mock function with given fields: _a0, currentVersion
+func (_m *Repository) UpdateUser(_a0 user.User, currentVersion int) error <span class="cov8" title="1">{
+        ret := _m.Called(_a0, currentVersion)
+
+        var r0 error
+        if rf, ok := ret.Get(0).(func(user.User, int) error); ok </span><span class="cov0" title="0">{
+                r0 = rf(_a0, currentVersion)
+        }</span> else<span class="cov8" title="1"> {
+                r0 = ret.Error(0)
+        }</span>
+
+        <span class="cov8" title="1">return r0</span>
+}
+</pre>
+		
+		<pre class="file" id="file25" style="display: none">// Code generated by mockery v0.0.0-dev. DO NOT EDIT.
+
+package mocks
+
+import (
+        "go-hexagonal-auth/business/admin"
+        user "go-hexagonal-auth/business/user"
+
+        mock "github.com/stretchr/testify/mock"
+)
+
+// Service is an autogenerated mock type for the Service type
+type Service struct {
+        mock.Mock
+}
+
+// FindAllUser provides a mock function with given fields: skip, rowPerPage
+func (_m *Service) FindAllUser(skip int, rowPerPage int) ([]user.User, error) <span class="cov0" title="0">{
+        ret := _m.Called(skip, rowPerPage)
+
+        var r0 []user.User
+        if rf, ok := ret.Get(0).(func(int, int) []user.User); ok </span><span class="cov0" title="0">{
+                r0 = rf(skip, rowPerPage)
+        }</span> else<span class="cov0" title="0"> {
+                if ret.Get(0) != nil </span><span class="cov0" title="0">{
+                        r0 = ret.Get(0).([]user.User)
+                }</span>
+        }
+
+        <span class="cov0" title="0">var r1 error
+        if rf, ok := ret.Get(1).(func(int, int) error); ok </span><span class="cov0" title="0">{
+                r1 = rf(skip, rowPerPage)
+        }</span> else<span class="cov0" title="0"> {
+                r1 = ret.Error(1)
+        }</span>
+
+        <span class="cov0" title="0">return r0, r1</span>
+}
+
+// FindUserByID provides a mock function with given fields: id
+func (_m *Service) FindUserByID(id int) (*user.User, error) <span class="cov0" title="0">{
+        ret := _m.Called(id)
+
+        var r0 *user.User
+        if rf, ok := ret.Get(0).(func(int) *user.User); ok </span><span class="cov0" title="0">{
+                r0 = rf(id)
+        }</span> else<span class="cov0" title="0"> {
+                if ret.Get(0) != nil </span><span class="cov0" title="0">{
+                        r0 = ret.Get(0).(*user.User)
+                }</span>
+        }
+
+        <span class="cov0" title="0">var r1 error
+        if rf, ok := ret.Get(1).(func(int) error); ok </span><span class="cov0" title="0">{
+                r1 = rf(id)
+        }</span> else<span class="cov0" title="0"> {
+                r1 = ret.Error(1)
+        }</span>
+
+        <span class="cov0" title="0">return r0, r1</span>
+}
+
+// FindUserByID provides a mock function with given fields: id
+func (_m *Service) FindAdminByID(id int) (*admin.Admin, error) <span class="cov0" title="0">{
+        ret := _m.Called(id)
+
+        var r0 *admin.Admin
+        if rf, ok := ret.Get(0).(func(int) *admin.Admin); ok </span><span class="cov0" title="0">{
+                r0 = rf(id)
+        }</span> else<span class="cov0" title="0"> {
+                if ret.Get(0) != nil </span><span class="cov0" title="0">{
+                        r0 = ret.Get(0).(*admin.Admin)
+                }</span>
+        }
+
+        <span class="cov0" title="0">var r1 error
+        if rf, ok := ret.Get(1).(func(int) error); ok </span><span class="cov0" title="0">{
+                r1 = rf(id)
+        }</span> else<span class="cov0" title="0"> {
+                r1 = ret.Error(1)
+        }</span>
+
+        <span class="cov0" title="0">return r0, r1</span>
+}
+// FindUserByUsernameAndPassword provides a mock function with given fields: username, password
+func (_m *Service) FindUserByUsernameAndPassword(username string, password string) (*user.User, error) <span class="cov0" title="0">{
+        ret := _m.Called(username, password)
+
+        var r0 *user.User
+        if rf, ok := ret.Get(0).(func(string, string) *user.User); ok </span><span class="cov0" title="0">{
+                r0 = rf(username, password)
+        }</span> else<span class="cov0" title="0"> {
+                if ret.Get(0) != nil </span><span class="cov0" title="0">{
+                        r0 = ret.Get(0).(*user.User)
+                }</span>
+        }
+
+        <span class="cov0" title="0">var r1 error
+        if rf, ok := ret.Get(1).(func(string, string) error); ok </span><span class="cov0" title="0">{
+                r1 = rf(username, password)
+        }</span> else<span class="cov0" title="0"> {
+                r1 = ret.Error(1)
+        }</span>
+
+        <span class="cov0" title="0">return r0, r1</span>
+}
+
+// InsertUser provides a mock function with given fields: insertUserSpec, createdBy
+func (_m *Service) InsertUser(insertUserSpec user.InsertUserSpec, createdBy string) error <span class="cov0" title="0">{
+        ret := _m.Called(insertUserSpec, createdBy)
+
+        var r0 error
+        if rf, ok := ret.Get(0).(func(user.InsertUserSpec, string) error); ok </span><span class="cov0" title="0">{
+                r0 = rf(insertUserSpec, createdBy)
+        }</span> else<span class="cov0" title="0"> {
+                r0 = ret.Error(0)
+        }</span>
+
+        <span class="cov0" title="0">return r0</span>
+}
+
+// UpdateUser provides a mock function with given fields: id, name, modifiedBy, currentVersion
+func (_m *Service) UpdateUser(id int, name string, modifiedBy string, currentVersion int) error <span class="cov0" title="0">{
+        ret := _m.Called(id, name, modifiedBy, currentVersion)
+
+        var r0 error
+        if rf, ok := ret.Get(0).(func(int, string, string, int) error); ok </span><span class="cov0" title="0">{
+                r0 = rf(id, name, modifiedBy, currentVersion)
+        }</span> else<span class="cov0" title="0"> {
+                r0 = ret.Error(0)
+        }</span>
+
+        <span class="cov0" title="0">return r0</span>
+}
+</pre>
+		
+		<pre class="file" id="file26" style="display: none">package user
+
+import (
+        "fmt"
+        "go-hexagonal-auth/business"
+        "go-hexagonal-auth/util/validator"
+        "time"
+)
+
+//InsertUserSpec create user spec
+type InsertUserSpec struct {
+        Name     string `validate:"required"`
+        Username string `validate:"required"`
+        Password string `validate:"required"`
+}
+
+//=============== The implementation of those interface put below =======================
+type service struct {
+        repository Repository
+}
+
+//NewService Construct user service object
+func NewService(repository Repository) Service <span class="cov8" title="1">{
+        return &amp;service{
+                repository,
+        }
+}</span>
+
+//FindUserByID Get user by given ID, return nil if not exist
+func (s *service) FindUserByID(id int) (*User, error) <span class="cov8" title="1">{
+        fmt.Println(id)
+        return s.repository.FindUserByID(id)
+}</span>
+
+//FindUserByUsernameAndPassword Get user by given ID, return nil if not exist
+func (s *service) FindUserByUsernameAndPassword(username string, password string) (*User, error) <span class="cov8" title="1">{
+        fmt.Println("asdas")
+        return s.repository.FindUserByUsernameAndPassword(username, password)
+}</span>
+
+//FindAllUser Get all users , will be return empty array if no data or error occured
+func (s *service) FindAllUser(skip int, rowPerPage int) ([]User, error) <span class="cov0" title="0">{
+
+        user, err := s.repository.FindAllUser(skip, rowPerPage)
+        if err != nil </span><span class="cov0" title="0">{
+                return []User{}, err
+        }</span>
+
+        <span class="cov0" title="0">return user, err</span>
+}
+
+//InsertUser Create new user and store into database
+func (s *service) InsertUser(insertUserSpec InsertUserSpec, createdBy string) error <span class="cov8" title="1">{
+        err := validator.GetValidator().Struct(insertUserSpec)
+        if err != nil </span><span class="cov0" title="0">{
+                return business.ErrInvalidSpec
+        }</span>
+
+        <span class="cov8" title="1">user := NewUser(
+                insertUserSpec.Name,
+                insertUserSpec.Username,
+                insertUserSpec.Password,
+                createdBy,
+                time.Now(),
+        )
+
+        err = s.repository.InsertUser(user)
+        if err != nil </span><span class="cov8" title="1">{
+                return err
+        }</span>
+
+        <span class="cov8" title="1">return nil</span>
+}
+
+//UpdateUser will update found user, if not exists will be return error
+func (s *service) UpdateUser(id int, name string, modifiedBy string, currentVersion int) error <span class="cov8" title="1">{
+
+        user, err := s.repository.FindUserByID(id)
+        if err != nil </span><span class="cov0" title="0">{
+                return err
+        }</span> else<span class="cov8" title="1"> if user == nil </span><span class="cov0" title="0">{
+                return business.ErrNotFound
+        }</span> else<span class="cov8" title="1"> if user.Version != currentVersion </span><span class="cov0" title="0">{
+                return business.ErrHasBeenModified
+        }</span>
+
+        <span class="cov8" title="1">modifiedUser := user.ModifyUser(name, time.Now(), modifiedBy)
+
+        return s.repository.UpdateUser(modifiedUser, currentVersion)</span>
+}
+</pre>
+		
+		<pre class="file" id="file27" style="display: none">package user
+
+import "time"
+
+//User product User that available to rent or sell
+type User struct {
+        ID         int
+        Name       string
+        Username   string
+        Password   string
+        Address   string
+        CreatedAt  time.Time
+        CreatedBy  string
+        ModifiedAt time.Time
+        ModifiedBy string
+        Version    int
+}
+
+//NewUser create new User
+func NewUser(
+        name string,
+        username string,
+        password string,
+        creator string,
+        createdAt time.Time) User <span class="cov8" title="1">{
+
+        return User{
+                Name:       name,
+                Username:   username,
+                Password:   password,
+                CreatedAt:  createdAt,
+                CreatedBy:  creator,
+                ModifiedAt: createdAt,
+                ModifiedBy: creator,
+                Version:    1,
+        }
+}</span>
+
+//ModifyUser update existing User data
+func (oldData *User) ModifyUser(newName string, modifiedAt time.Time, updater string) User <span class="cov8" title="1">{
+        return User{
+                ID:         oldData.ID,
+                Name:       newName,
+                Username:   oldData.Username,
+                Password:   oldData.Password,
+                CreatedAt:  oldData.CreatedAt,
+                CreatedBy:  oldData.CreatedBy,
+                ModifiedAt: modifiedAt,
+                ModifiedBy: updater,
+                Version:    oldData.Version + 1,
+        }
+}</span>
+
+//ModifyUser Address update existing User data
+func (oldData *User) ModifyUserAdress(address string, modifiedAt time.Time, updater string) User <span class="cov0" title="0">{
+        return User{
+                ID:         oldData.ID,
+                Name:       oldData.Name,
+                Username:   oldData.Username,
+                Password:   oldData.Password,
+                Address:         address,
+                CreatedAt:  oldData.CreatedAt,
+                CreatedBy:  oldData.CreatedBy,
+                ModifiedAt: modifiedAt,
+                ModifiedBy: updater,
+                Version:    oldData.Version + 1,
+        }
+}</span>
+</pre>
+		
+		<pre class="file" id="file28" style="display: none">package config
+
+import (
+        "github.com/spf13/viper"
+        "log"
+        "os"
+)
+
+type ConfigIPForwarding struct {
+        Enabled bool   `mapstructure:"enabled"`
+        IP      string `mapstructure:"ip"`
+        Port    string `mapstructure:"port"`
+}
+
+
+type ServerConfig struct {
+        Addr            string
+        WriteTimeout    int
+        ReadTimeout     int
+        GraceFulTimeout int
+        Registration    bool
+}
+
+type ImpersonificationConfig struct {
+        Password string
+        Admin    bool
+        User     bool
+}
+
+type DBConfig struct {
+        Driver          string
+        Name            string
+        Host            string
+        Port                         string
+        Username                string
+        Password                string
+        MaxOpenConn     int
+        MaxIdleConn     int
+        ConnMaxLifetime int
+}
+
+type Config struct {
+        Server            ServerConfig
+        DB                DBConfig
+        Redis             RedisServer
+        JWTConfig         JWTConfig
+        Mailer            Mailer
+        ResetPassword     ResetPassword
+        NoSQL                           NoSQLConfig
+}
+
+type NoSQLConfig struct {
+        Driver        string
+        Host         string
+        Port         int
+        Username        string
+        Password         string
+}
+
+type RedisServer struct {
+        Addr     string
+        Password string
+        Timeout  int
+        MaxIdle  int
+}
+
+// JWTConfig is JWT configuration object
+type JWTConfig struct {
+        Issuer            string
+        Secret            string
+        TokenLifeTimeHour int
+}
+
+type Mailer struct {
+        Server     string
+        Port       int
+        Username   string
+        Password   string
+        UseTls     bool
+        Sender     string
+        MaxAttempt int
+}
+
+type ResetPassword struct {
+        UserLink  string
+        AdminLink string
+}
+
+
+func InitConfig() Config <span class="cov0" title="0">{
+        viper.SetConfigName(".env")
+        if os.Getenv("ENV") == "staging" </span><span class="cov0" title="0">{
+                viper.SetConfigName(".env.yml-" + "staging")
+        }</span>
+
+        <span class="cov0" title="0">if os.Getenv("ENV") == "production" </span><span class="cov0" title="0">{
+                viper.SetConfigName(".env.yml-" + "production")
+        }</span>
+
+        <span class="cov0" title="0">viper.AddConfigPath(".")
+
+        var configuration Config
+
+        if err := viper.ReadInConfig(); err != nil </span><span class="cov0" title="0">{
+                log.Fatalf("Error reading config file, %s", err)
+        }</span>
+        <span class="cov0" title="0">err := viper.Unmarshal(&amp;configuration)
+        if err != nil </span><span class="cov0" title="0">{
+                log.Fatalf("unable to decode into struct, %v", err)
+        }</span>
+
+        <span class="cov0" title="0">return configuration</span>
+}
+</pre>
+		
+		<pre class="file" id="file29" style="display: none">package constants
+
+// Date format constants
+const (
+        Authorization     = "Authorization"
+        DateTimeFormatStd = "2006-01-02 15:04:05"
+        DateFormatStd     = "2006-01-02"
+        TimeFormatStd     = "15:04:05"
+        TimeFormatShort   = "15:04"
+)
+
+// Gender enum
+const (
+        GenderMale   = "pria"
+        GenderFemale = "wanita"
+)
+
+// Mail templates
+const (
+        MailMainTemplate          = "templates/layout/Main.html"
+        MailLogoTemplate          = "templates/layout/Logo.html"
+        MailFooterTemplate        = "templates/layout/Footer.html"
+        MailResetPasswordTemplate = "templates/page/ResetPassword.html"
+        DESILogoURL               = "https://desi-test.s3.ap-southeast-1.amazonaws.com/logo/608f1a20a23878e1368c563e.png"
+)
+
+// OTP purposes
+const (
+        OTPPurposeResetPasswordUser  = "reset-password-user"
+        OTPPurposeResetPasswordAdmin = "reset-password-admin"
+)
+
+const (
+        DefaultEntity           = "DESI"
+        DefaultEmploymentStatus = "DEVELOPER DESI"
+        DefaultGrade            = "L14"
+        DefaultAdminID          = 1
+)
+
+// ValidGender return true if input is a valid gender enum
+func ValidGender(gender string) bool <span class="cov0" title="0">{
+        return gender == GenderMale || gender == GenderFemale
+}</span>
+
+// NormalizeGender return gender value if valid, otherwise return empty string
+func NormalizeGender(gender string) string <span class="cov0" title="0">{
+        if gender == "" </span><span class="cov0" title="0">{
+                return ""
+        }</span>
+
+        <span class="cov0" title="0">if gender == "male" </span><span class="cov0" title="0">{
+                gender = GenderMale
+        }</span> else<span class="cov0" title="0"> if gender == "female" </span><span class="cov0" title="0">{
+                gender = GenderFemale
+        }</span>
+
+        <span class="cov0" title="0">if ValidGender(gender) </span><span class="cov0" title="0">{
+                return gender
+        }</span>
+
+        <span class="cov0" title="0">return ""</span>
+}
+</pre>
+		
+		<pre class="file" id="file30" style="display: none">package admin
+
+import (
+        "fmt"
+        "go-hexagonal-auth/business/admin"
+        "time"
+
+        "gorm.io/gorm"
+)
+
+//GormRepository The implementation of Admin.Repository object
+type GormRepository struct {
+        DB *gorm.DB
+}
+
+type Admins struct {
+        ID         int       `gorm:"id;primaryKey;autoIncrement"`
+        Name       string    `gorm:"name"`
+        Username   string    `gorm:"username;index:idx_email,unique"`
+        Password   string    `gorm:"password"`
+        CreatedAt  time.Time `gorm:"created_at"`
+        CreatedBy  string    `gorm:"created_by"`
+        ModifiedAt time.Time `gorm:"modified_at"`
+        ModifiedBy string    `gorm:"modified_by"`
+}
+
+func newAdmin(Admin admin.Admin) *Admins <span class="cov0" title="0">{
+
+        return &amp;Admins{
+                Admin.ID,
+                Admin.Name,
+                Admin.Username,
+                Admin.Password,
+                Admin.CreatedAt,
+                Admin.CreatedBy,
+                Admin.ModifiedAt,
+                Admin.ModifiedBy,
+        }
+
+}</span>
+
+func (col *Admins) ToAdmin() admin.Admin <span class="cov0" title="0">{
+        var Admin admin.Admin
+
+        Admin.ID = col.ID
+        Admin.Name = col.Name
+        Admin.Username = col.Username
+        Admin.Password = col.Password
+        Admin.CreatedAt = col.CreatedAt
+        Admin.CreatedBy = col.CreatedBy
+        Admin.ModifiedAt = col.ModifiedAt
+        Admin.ModifiedBy = col.ModifiedBy
+
+        return Admin
+}</span>
+
+//NewGormDBRepository Generate Gorm DB Admin repository
+func NewGormDBRepository(db *gorm.DB) *GormRepository <span class="cov0" title="0">{
+        return &amp;GormRepository{
+                db,
+        }
+}</span>
+
+//FindAdminByID If data not found will return nil without error
+func (repo *GormRepository) FindAdminByID(id int) (*admin.Admin, error) <span class="cov0" title="0">{
+
+        var AdminData Admins
+
+        err := repo.DB.First(&amp;AdminData, id).Error
+        if err != nil </span><span class="cov0" title="0">{
+                return nil, err
+        }</span>
+
+        <span class="cov0" title="0">Admin := AdminData.ToAdmin()
+
+        return &amp;Admin, nil</span>
+}
+
+//FindAdminByID If data not found will return nil without error
+func (repo *GormRepository) FindAdminByAdminnameAndPassword(Adminname string, password string) (*admin.Admin, error) <span class="cov0" title="0">{
+
+        var AdminData Admins
+
+        err := repo.DB.Where("username = ?", Adminname).First(&amp;AdminData).Error
+        if err != nil </span><span class="cov0" title="0">{
+                return nil, err
+        }</span>
+
+        <span class="cov0" title="0">Admin := AdminData.ToAdmin()
+
+        return &amp;Admin, nil</span>
+}
+
+//FindAllAdmin find all Admin with given specific page and row per page, will return empty slice instead of nil
+func (repo *GormRepository) FindAllAdmin(skip int, rowPerPage int) ([]admin.Admin, error) <span class="cov0" title="0">{
+
+        var Admins []Admins
+
+        err := repo.DB.Offset(skip).Limit(rowPerPage).Find(&amp;Admins).Error
+        if err != nil </span><span class="cov0" title="0">{
+                return nil, err
+        }</span>
+
+        <span class="cov0" title="0">var result []admin.Admin
+        for _, value := range Admins </span><span class="cov0" title="0">{
+                result = append(result, value.ToAdmin())
+        }</span>
+
+        <span class="cov0" title="0">return result, nil</span>
+}
+
+//InsertAdmin Insert new Admin into storage
+func (repo *GormRepository) InsertAdmin(admin admin.Admin) error <span class="cov0" title="0">{
+
+        AdminData := newAdmin(admin)
+        AdminData.ID = 0
+        fmt.Println(AdminData)
+        err := repo.DB.Create(AdminData).Error
+        if err != nil </span><span class="cov0" title="0">{
+                return err
+        }</span>
+
+        <span class="cov0" title="0">return nil</span>
+}
+
+//UpdateItem Update existing item in database
+func (repo *GormRepository) UpdateAdmin(admin admin.Admin) error <span class="cov0" title="0">{
+
+        AdminData := newAdmin(admin)
+
+        err := repo.DB.Model(&amp;AdminData).Updates(Admins{Name: AdminData.Name}).Error
+        if err != nil </span><span class="cov0" title="0">{
+                return err
+        }</span>
+
+        <span class="cov0" title="0">return nil</span>
+}
+</pre>
+		
+		<pre class="file" id="file31" style="display: none">package mail
+
+import (
+        "bytes"
+        "go-hexagonal-auth/config"
+        "go-hexagonal-auth/constants"
+        "html/template"
+        "strings"
+
+        log "github.com/sirupsen/logrus"
+
+        gomail "gopkg.in/gomail.v2"
+)
+
+type mailer struct {
+        cfg *config.Mailer
+}
+
+type MailDetail struct {
+        To       []string
+        Cc       []string
+        Subject  string
+        Template string
+        Data     interface{}
+}
+
+type MailInterface interface {
+        Send(detail MailDetail) error
+}
+
+func NewMailer(cfg *config.Mailer) MailInterface <span class="cov0" title="0">{
+        return &amp;mailer{
+                cfg: cfg,
+        }
+}</span>
+
+func SetMail(to []string, cc []string, subject string, data interface{}, template string) *MailDetail <span class="cov0" title="0">{
+        return &amp;MailDetail{
+                To:       to,
+                Cc:       cc,
+                Subject:  subject,
+                Data:     data,
+                Template: template,
+        }
+}</span>
+
+func (m *mailer) Send(detail MailDetail) error <span class="cov0" title="0">{
+        mainTemplate := constants.MailMainTemplate
+        logoTemplate := constants.MailLogoTemplate
+        footerTemplate := constants.MailFooterTemplate
+
+        t := template.Must(template.ParseFiles(mainTemplate, logoTemplate, footerTemplate, detail.Template))
+        var tpl bytes.Buffer
+        if err := t.ExecuteTemplate(&amp;tpl, "layout", detail.Data); err != nil </span><span class="cov0" title="0">{
+                log.Error(err)
+                return err
+        }</span>
+
+        <span class="cov0" title="0">result := tpl.String()
+        result = strings.ReplaceAll(result, "{LOGO_DESI}", constants.DESILogoURL)
+
+        mailer := gomail.NewMessage()
+        mailer.SetHeader("From", m.cfg.Sender)
+        mailer.SetHeader("To", detail.To...)
+        for _, cc := range detail.Cc </span><span class="cov0" title="0">{
+                mailer.SetAddressHeader("Cc", cc, cc)
+        }</span>
+        <span class="cov0" title="0">mailer.SetHeader("Subject", detail.Subject)
+        mailer.SetBody("text/html", result)
+
+        dialer := gomail.NewPlainDialer(
+                m.cfg.Server,
+                int(m.cfg.Port),
+                m.cfg.Username,
+                m.cfg.Password,
+        )
+
+        if err := dialer.DialAndSend(mailer); err != nil </span><span class="cov0" title="0">{
+                log.Error(err)
+                return err
+        }</span>
+
+        <span class="cov0" title="0">return nil</span>
+}
+</pre>
+		
+		<pre class="file" id="file32" style="display: none">package migration
+
+import (
+        "go-hexagonal-auth/modules/admin"
+        "go-hexagonal-auth/modules/user"
+
+        "gorm.io/gorm"
+)
+
+func InitMigrate(db *gorm.DB) <span class="cov0" title="0">{
+        db.AutoMigrate(&amp;user.User{}, &amp;admin.Admins{})
+}</span>
+</pre>
+		
+		<pre class="file" id="file33" style="display: none">package mongodb
+
+import (
+        "context"
+        "go-hexagonal-auth/config"
+        "time"
+
+        "go.mongodb.org/mongo-driver/mongo"
+        "go.mongodb.org/mongo-driver/mongo/options"
+)
+
+type mongoDBServer struct {
+        cfg *config.Config
+}
+
+type MongoDBServerInterface interface {
+        Connect(ctx context.Context) (*mongo.Database, error)
+}
+
+func NewMongoDBServer(cfg *config.Config) MongoDBServerInterface <span class="cov0" title="0">{
+        return &amp;mongoDBServer{
+                cfg: cfg,
+        }
+}</span>
+
+func (r *mongoDBServer) Connect(ctx context.Context) (*mongo.Database, error) <span class="cov0" title="0">{
+        timeout := time.Duration(r.cfg.Server.WriteTimeout) * time.Second
+        clientOptions := options.Client()
+        clientOptions.ApplyURI("mongodb://localhost:27017")
+        clientOptions.ConnectTimeout = &amp;timeout
+        client, err := mongo.NewClient(clientOptions)
+        if err != nil </span><span class="cov0" title="0">{
+                return nil, err
+        }</span>
+
+        <span class="cov0" title="0">err = client.Connect(ctx)
+        if err != nil </span><span class="cov0" title="0">{
+                return nil, err
+        }</span>
+
+        <span class="cov0" title="0">return client.Database("belajar_golang"), nil</span>
+}
+</pre>
+		
+		<pre class="file" id="file34" style="display: none">package redis
+
+import (
+        "context"
+        "time"
+
+        log "github.com/sirupsen/logrus"
+
+        "go-hexagonal-auth/config"
+
+        "github.com/go-redis/redis/v8"
+)
+
+type redisServer struct {
+        cfg *config.RedisServer
+}
+
+type RedisServerInterface interface {
+        Connect(ctx context.Context) (*redis.Client, error)
+}
+
+func NewRedisServer(cfg *config.RedisServer) RedisServerInterface <span class="cov0" title="0">{
+        return &amp;redisServer{
+                cfg: cfg,
+        }
+}</span>
+
+func (r *redisServer) Connect(ctx context.Context) (*redis.Client, error) <span class="cov0" title="0">{
+        timeout := time.Duration(r.cfg.Timeout) * time.Second
+        rdb := redis.NewClient(&amp;redis.Options{
+                Addr:        r.cfg.Addr,
+                Password:    r.cfg.Password,
+                DialTimeout: timeout,
+        })
+
+        _, err := rdb.Ping(ctx).Result()
+        if err != nil </span><span class="cov0" title="0">{
+                log.Error("cannot connect to redis")
+                return nil, err
+        }</span>
+        <span class="cov0" title="0">log.Infof("success connect to redis %s", rdb)
+        return rdb, nil</span>
+}
+</pre>
+		
+		<pre class="file" id="file35" style="display: none">package user
+
+import (
+        "fmt"
+        "go-hexagonal-auth/business/user"
+        "gorm.io/gorm"
+        "time"
+)
+
+//GormRepository The implementation of user.Repository object
+type GormRepository struct {
+        DB *gorm.DB
+}
+
+type User struct {
+        ID         int       `gorm:"id;primaryKey;autoIncrement"`
+        Name       string    `gorm:"name"`
+        Username   string    `gorm:"username;index:idx_username,unique"`
+        Password   string    `gorm:"password"`
+        Address    string    `gorm: "address" `
+        CreatedAt  time.Time `gorm:"created_at"`
+        CreatedBy  string    `gorm:"created_by"`
+        ModifiedAt time.Time `gorm:"modified_at"`
+        ModifiedBy string    `gorm:"modified_by"`
+        Version    int       `gorm:"version"`
+}
+
+func newUserTable(user user.User) *User <span class="cov0" title="0">{
+
+        return &amp;User{
+                user.ID,
+                user.Name,
+                user.Username,
+                user.Password,
+                user.Address,
+                user.CreatedAt,
+                user.CreatedBy,
+                user.ModifiedAt,
+                user.ModifiedBy,
+                user.Version,
+        }
+
+}</span>
+
+func (col *User) ToUser() user.User <span class="cov0" title="0">{
+        var user user.User
+
+        user.ID = col.ID
+        user.Name = col.Name
+        user.Username = col.Username
+        user.Password = col.Password
+        user.Address = col.Address
+        user.CreatedAt = col.CreatedAt
+        user.CreatedBy = col.CreatedBy
+        user.ModifiedAt = col.ModifiedAt
+        user.ModifiedBy = col.ModifiedBy
+        user.Version = col.Version
+
+        return user
+}</span>
+
+//NewGormDBRepository Generate Gorm DB user repository
+func NewGormDBRepository(db *gorm.DB) *GormRepository <span class="cov0" title="0">{
+        return &amp;GormRepository{
+                db,
+        }
+}</span>
+
+//FindUserByID If data not found will return nil without error
+func (repo *GormRepository) FindUserByID(id int) (*user.User, error) <span class="cov0" title="0">{
+
+        var userData User
+        err := repo.DB.First(&amp;userData, id).Error
+        if err != nil </span><span class="cov0" title="0">{
+                return nil, err
+        }</span>
+
+        <span class="cov0" title="0">user := userData.ToUser()
+        return &amp;user, nil</span>
+}
+
+//FindUserByID If data not found will return nil without error
+func (repo *GormRepository) FindUserByUsernameAndPassword(username string, password string) (*user.User, error) <span class="cov0" title="0">{
+
+        fmt.Println(username)
+        var userData User
+
+        err := repo.DB.Where("username = ?", username).First(&amp;userData).Error
+        if err != nil </span><span class="cov0" title="0">{
+                return nil, err
+        }</span>
+
+        <span class="cov0" title="0">user := userData.ToUser()
+
+        return &amp;user, nil</span>
+}
+
+//FindAllUser find all user with given specific page and row per page, will return empty slice instead of nil
+func (repo *GormRepository) FindAllUser(skip int, rowPerPage int) ([]user.User, error) <span class="cov0" title="0">{
+
+        var users []User
+
+        err := repo.DB.Offset(skip).Limit(rowPerPage).Find(&amp;users).Error
+        if err != nil </span><span class="cov0" title="0">{
+                return nil, err
+        }</span>
+
+        <span class="cov0" title="0">var result []user.User
+        for _, value := range users </span><span class="cov0" title="0">{
+                result = append(result, value.ToUser())
+        }</span>
+
+        <span class="cov0" title="0">return result, nil</span>
+}
+
+//InsertUser Insert new User into storage
+func (repo *GormRepository) InsertUser(user user.User) error <span class="cov0" title="0">{
+
+        userData := newUserTable(user)
+        userData.ID = 0
+
+        err := repo.DB.Create(userData).Error
+        if err != nil </span><span class="cov0" title="0">{
+                return err
+        }</span>
+
+        <span class="cov0" title="0">return nil</span>
+}
+
+//UpdateItem Update existing item in database
+func (repo *GormRepository) UpdateUser(user user.User, currentVersion int) error <span class="cov0" title="0">{
+
+        userData := newUserTable(user)
+
+        err := repo.DB.Model(&amp;userData).Updates(User{Name: userData.Name, Version: userData.Version}).Error
+        if err != nil </span><span class="cov0" title="0">{
+                return err
+        }</span>
+
+        <span class="cov0" title="0">return nil</span>
+}
+
+
+//UpdateItem Address Update existing item in database
+func (repo *GormRepository) UpdateUserAddress(user user.User, currentVersion int) error <span class="cov0" title="0">{
+
+        userData := newUserTable(user)
+
+        err := repo.DB.Model(&amp;userData).Updates(User{Address: userData.Address, Version: userData.Version}).Error
+        if err != nil </span><span class="cov0" title="0">{
+                return err
+        }</span>
+
+        <span class="cov0" title="0">return nil</span>
+}</pre>
+		
+		<pre class="file" id="file36" style="display: none">package utils
+
+import (
+        "encoding/json"
+        "net/http"
+)
+
+const (
+        contentType              = "Content-Type"
+        contentTypeValue         = "application/json; charset=utf-8"
+        xContentTypeOptions      = "X-Content-Type-Options"
+        xContentTypeOptionsValue = "nosniff"
+
+        STATUS_INTERNAL_ERR = "STATUS_INTERNAL_ERROR"
+        STATUS_BAD_REQUEST  = "STATUS_BAD_REQUEST"
+        STATUS_UNAUTHORIZED = "STATUS_UNAUTHORIZED"
+)
+
+// Response is object for response http
+type Response struct {
+        Code int         `json:"code"`
+        Data interface{} `json:"data"`
+        Err  string      `json:"error"`
+        Msg  string      `json:"message"`
+}
+
+// JSONResponseWithErr is method for return http json err
+func (r *Response) JSONResponseWithErr(w http.ResponseWriter) <span class="cov0" title="0">{
+        lock.Lock()
+        defer lock.Unlock()
+
+        w.Header().Set(contentType, contentTypeValue)
+        w.Header().Set(xContentTypeOptions, xContentTypeOptionsValue)
+        w.WriteHeader(r.Code)
+        json.NewEncoder(w).Encode(r)
+}</span>
+
+// JSONResponseWithErr is method for return http json
+func (r *Response) JSONResponse(w http.ResponseWriter) <span class="cov0" title="0">{
+        lock.Lock()
+        defer lock.Unlock()
+
+        w.Header().Set(contentType, contentTypeValue)
+        w.Header().Set(xContentTypeOptions, xContentTypeOptionsValue)
+        w.WriteHeader(r.Code)
+        json.NewEncoder(w).Encode(r)
+}</span>
+</pre>
+		
+		<pre class="file" id="file37" style="display: none">package utils
+
+import (
+        "regexp"
+        "sync"
+        "time"
+        "unicode"
+
+        "golang.org/x/crypto/bcrypt"
+
+        "go-hexagonal-auth/constants"
+)
+
+var (
+        emailRegex = regexp.MustCompile("^[a-zA-Z0-9.!#$%&amp;'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$")
+)
+var lock = &amp;sync.Mutex{}
+
+// ValidateEmail return true if email address has a valid format
+func ValidateEmail(email string) bool <span class="cov0" title="0">{
+        return emailRegex.MatchString(email)
+}</span>
+
+func ValidatePassword(s string) bool <span class="cov0" title="0">{
+        lock.Lock()
+        defer lock.Unlock()
+        letters := 0
+        var number, upper, special bool
+        for _, c := range s </span><span class="cov0" title="0">{
+                letters++
+                switch </span>{
+                case unicode.IsNumber(c):<span class="cov0" title="0">
+                        number = true</span>
+                case unicode.IsUpper(c):<span class="cov0" title="0">
+                        upper = true</span>
+                case unicode.IsPunct(c) || unicode.IsSymbol(c):<span class="cov0" title="0">
+                        special = true</span>
+                }
+        }
+        <span class="cov0" title="0">return letters &gt;= 8 &amp;&amp; number &amp;&amp; upper &amp;&amp; special</span>
+}
+
+func HashPassword(password string) (string, error) <span class="cov0" title="0">{
+        lock.Lock()
+        defer lock.Unlock()
+        bytes, err := bcrypt.GenerateFromPassword([]byte(password), bcrypt.DefaultCost)
+        return string(bytes), err
+}</span>
+
+func CheckPasswordHash(password, hash string) bool <span class="cov0" title="0">{
+        lock.Lock()
+        defer lock.Unlock()
+        err := bcrypt.CompareHashAndPassword([]byte(hash), []byte(password))
+        return err == nil
+}</span>
+
+// DateString return string representation of a date pointer
+func DateString(dateTime *time.Time) string <span class="cov0" title="0">{
+        lock.Lock()
+        defer lock.Unlock()
+        if dateTime == nil </span><span class="cov0" title="0">{
+                return ""
+        }</span>
+
+        <span class="cov0" title="0">return dateTime.Format(constants.DateFormatStd)</span>
+}
+
+func NullStringScan(value *string) string <span class="cov0" title="0">{
+        lock.Lock()
+        defer lock.Unlock()
+        if value == nil </span><span class="cov0" title="0">{
+                return ""
+        }</span>
+
+        <span class="cov0" title="0">return *value</span>
+}
+</pre>
+		
+		<pre class="file" id="file38" style="display: none">package validator
+
+import (
+        "sync"
+
+        "github.com/go-playground/validator/v10"
+)
+
+var lock = &amp;sync.Mutex{}
+var validate *validator.Validate
+
+//GetValidator Initiatilize validator in singleton way
+func GetValidator() *validator.Validate <span class="cov8" title="1">{
+        lock.Lock()
+        defer lock.Unlock()
+
+        if validate == nil </span><span class="cov8" title="1">{
+                validate = validator.New()
+        }</span>
+
+        <span class="cov8" title="1">return validate</span>
+}
+</pre>
+		
+		</div>
+	</body>
+	<script>
+	(function() {
+		var files = document.getElementById('files');
+		var visible;
+		files.addEventListener('change', onChange, false);
+		function select(part) {
+			if (visible)
+				visible.style.display = 'none';
+			visible = document.getElementById(part);
+			if (!visible)
+				return;
+			files.value = part;
+			visible.style.display = 'block';
+			location.hash = part;
+		}
+		function onChange() {
+			select(files.value);
+			window.scrollTo(0, 0);
+		}
+		if (location.hash != "") {
+			select(location.hash.substr(1));
+		}
+		if (!visible) {
+			select("file0");
+		}
+	})();
+	</script>
+</html>

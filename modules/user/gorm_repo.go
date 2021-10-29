@@ -1,7 +1,6 @@
 package user
 
 import (
-	"fmt"
 	"go-hexagonal-auth/business/user"
 	"gorm.io/gorm"
 	"time"
@@ -82,7 +81,6 @@ func (repo *GormRepository) FindUserByID(id int) (*user.User, error) {
 //FindUserByID If data not found will return nil without error
 func (repo *GormRepository) FindUserByUsernameAndPassword(username string, password string) (*user.User, error) {
 
-	fmt.Println(username)
 	var userData User
 
 	err := repo.DB.Where("username = ?", username).First(&userData).Error

@@ -832,7 +832,7 @@
         }
       }
     },
-    "/auth/register": {
+    "/auth/register-user": {
       "post": {
         "tags": [
           "Auth"
@@ -854,7 +854,7 @@
             "required": true
           },
           {
-            "name": "email",
+            "name": "username",
             "description": "",
             "in": "body",
             "schema": {
@@ -897,6 +897,118 @@
           },
           {
             "name": "address",
+            "description": "",
+            "in": "body",
+            "schema": {
+              "type": "string",
+              "properties": {
+                "name": {
+                  "type": "string"
+                }
+              }
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success registration",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "code": {
+                  "type": "number"
+                },
+                "status": {
+                  "type": "string"
+                },
+                "data": {
+                  "type": "array",
+                  "items": {
+                  }
+                },
+                "message": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Failed registration ",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "code": {
+                  "type": "number"
+                },
+                "status": {
+                  "type": "string"
+                },
+                "data": {
+                  "type": "array",
+                  "items": {
+                  }
+                },
+                "message": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/auth/register-admin": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "description": "Register",
+        "parameters": [
+          {
+            "name": "name",
+            "description": "",
+            "in": "body",
+            "schema": {
+              "type": "string",
+              "properties": {
+                "name": {
+                  "type": "string"
+                }
+              }
+            },
+            "required": true
+          },
+          {
+            "name": "username",
+            "description": "",
+            "in": "body",
+            "schema": {
+              "type": "string",
+              "properties": {
+                "name": {
+                  "type": "string"
+                }
+              }
+            },
+            "required": true
+          },
+          {
+            "name": "password",
+            "description": "",
+            "in": "body",
+            "schema": {
+              "type": "string",
+              "properties": {
+                "name": {
+                  "type": "string"
+                }
+              }
+            },
+            "required": true
+          },
+          {
+            "name": "re_password",
             "description": "",
             "in": "body",
             "schema": {

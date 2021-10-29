@@ -1,4 +1,4 @@
-package auth_test
+package media_test
 
 import (
 	"github.com/stretchr/testify/mock"
@@ -61,7 +61,7 @@ func TestLogin(t *testing.T) {
 		authServiceMock.On("Login",   mock.AnythingOfType("string"), mock.AnythingOfType("bool")).Return(&data, nil).Once()
 
 
-		user, err := authServiceMock.Login(username, is_admin)
+		user, err := authService.Login(username, is_admin)
 
 		assert.Nil(t, err)
 		assert.NotNil(t, user)
@@ -89,8 +89,9 @@ func TestLogin(t *testing.T) {
 func TestRegisterAdmin(t *testing.T) {
 	t.Run("Expect register the user", func(t *testing.T) {
 		authServiceMock.On("RegisterAdmin",   mock.Anything).Return(&reqAdmin, nil).Once()
+		authRepository.On("InsertAdmin",   mock.AnythingOfType("admin.Admin")).Return(&reqAdmin, nil).Once()
 
-		user, err := authServiceMock.RegisterAdmin(reqAdmin)
+		user, err := authService.RegisterAdmin(reqAdmin)
 
 		assert.Nil(t, err)
 		assert.NotNil(t, user)

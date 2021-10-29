@@ -34,7 +34,6 @@ func (s *service) FindUserByID(id int) (*User, error) {
 
 //FindUserByUsernameAndPassword Get user by given ID, return nil if not exist
 func (s *service) FindUserByUsernameAndPassword(username string, password string) (*User, error) {
-	fmt.Println("asdas")
 	return s.repository.FindUserByUsernameAndPassword(username, password)
 }
 

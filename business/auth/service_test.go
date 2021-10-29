@@ -73,7 +73,7 @@ func TestLogin(t *testing.T) {
 	})
 
 	t.Run("Expect user not found", func(t *testing.T) {
-		authServiceMock.On("Login",   mock.Anything).Return(nil, business.ErrNotFound).Once()
+		authServiceMock.On("Login",   mock.AnythingOfType("string"), mock.AnythingOfType("bool")).Return(nil, business.ErrNotFound).Once()
 
 
 		user, err := authServiceMock.Login(username, is_admin)

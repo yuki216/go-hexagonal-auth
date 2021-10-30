@@ -12,8 +12,8 @@ RUN go build -o main ./app/
 FROM alpine:3.14
 USER root
 WORKDIR /root/
-RUN mkdir /public
-RUN mkdir /public/products
+RUN mkdir /root/public
+RUN mkdir /root/public/products
 #RUN chown -R www:www /root/public
 #RUN chmod -R 777 /var/root/public
 #RUN chmod -R 777 /var/root/public/products

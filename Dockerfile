@@ -11,6 +11,8 @@ RUN go build -o main ./app/
 # stage 2
 FROM alpine:3.14
 WORKDIR /root/
+RUN mkdir /public
+RUN mkdir /public/products
 COPY --from=builder /app/.env.yml .
 COPY --from=builder /app/main .
 EXPOSE 9090

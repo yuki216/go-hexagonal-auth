@@ -65,5 +65,5 @@ func (s *service) UploadMedia(file *multipart.FileHeader) (string, error) {
 		return "", err
 	}
 
-	return "/public/products/"+currentTime.Format("2006-01-02")+"/"+filename, nil
+	return "/products/"+currentTime.Format("2006-01-02")+"/"+filename, nil
 }

@@ -111,7 +111,7 @@ func main() {
 	go func() {
 		address := fmt.Sprintf("%s", config.Server.Addr)
 
-		e.Static("/","public")
+		e.Static("auth/","public")
 		if err := e.Start(address); err != nil {
 			log.Info("shutting down the server")
 		}

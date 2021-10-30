@@ -10,9 +10,14 @@ RUN go build -o main ./app/
 
 # stage 2
 FROM alpine:3.14
+USER root
 WORKDIR /root/
 RUN mkdir /public
 RUN mkdir /public/products
+#RUN chown -R www:www /root/public
+#RUN chmod -R 777 /var/root/public
+#RUN chmod -R 777 /var/root/public/products
+
 COPY --from=builder /app/.env.yml .
 COPY --from=builder /app/main .
 EXPOSE 9090

@@ -16,13 +16,13 @@ func RegisterPath(e *echo.Echo, authController *auth.Controller, userController 
 	}
 
 	//authentication with Versioning endpoint
-	authV1 := e.Group("api/v1/auth")
+	authV1 := e.Group("auth/api/v1/auth")
 	authV1.POST("/login", authController.Login)
 	authV1.POST("/register-admin", authController.RegisterAdmin)
 	authV1.POST("/register-user", authController.RegisterUser)
 
 	//user with Versioning endpoint
-	userV1 := e.Group("api/v1/users")
+	userV1 := e.Group("auth/api/v1/users")
 	userV1.Use(middleware.JWTMiddleware(cfg))
 	userV1.GET("/:id", userController.FindUserByID)
 	userV1.GET("", userController.FindAllUser)
@@ -31,12 +31,12 @@ func RegisterPath(e *echo.Echo, authController *auth.Controller, userController 
 
 
 	//user with Versioning endpoint
-	mediaV1 := e.Group("api/v1/media")
+	mediaV1 := e.Group("auth/api/v1/media")
 	mediaV1.Use(middleware.JWTMiddleware(cfg))
 	mediaV1.POST("/upload", mediaController.MediaUpload)
 
 	//health check
-	e.GET("/health", func(c echo.Context) error {
+	e.GET("auth/health", func(c echo.Context) error {
 		return c.NoContent(200)
 	})
 }

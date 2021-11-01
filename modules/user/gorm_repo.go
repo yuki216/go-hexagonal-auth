@@ -83,12 +83,17 @@ func (repo *GormRepository) FindUserByUsernameAndPassword(username string, passw
 
 	var userData User
 
-	err := repo.DB.Where("username = ?", username).First(&userData).Error
-	if err != nil {
-		return nil, err
+	data := repo.DB.Where("username = ?", username)
+	if data.Error != nil {
+		return nil, data.Error
+	}
+
+	if data.RowsAffected <= 0{
+		return nil, data.Error
 	}
 
 	user := userData.ToUser()
+
 
 	return &user, nil
 }

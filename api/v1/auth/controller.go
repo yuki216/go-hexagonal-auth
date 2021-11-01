@@ -38,6 +38,13 @@ func (controller *Controller) Login(c echo.Context) error {
 	}
 
 	user, err := controller.service.Login(loginRequest.Username, loginRequest.IsAdmin)
+	if user == nil {
+		return c.JSON(common.NewErrorResponse(common.ControllerResponse{
+			Code:    common.ErrBadRequest,
+			Message: "Data Not Found",
+			Data:    nil,
+		}))
+	}
 
 	if !utils.CheckPasswordHash(loginRequest.Password, user.Password) {
 		return c.JSON(common.NewErrorResponse(common.ControllerResponse{

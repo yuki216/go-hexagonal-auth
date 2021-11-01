@@ -1,6 +1,7 @@
 package auth
 
 import (
+	"errors"
 	"go-hexagonal-auth/api/v1/auth/request"
 	"go-hexagonal-auth/business"
 	"go-hexagonal-auth/business/admin"
@@ -39,7 +40,9 @@ func (s *service) Login(username string, isAdmin bool) (*user.User, error) {
 		if err != nil {
 			return nil, err
 		}
-
+		if adminData == nil {
+			return nil, errors.New("data not found")
+		}
 		result = user.User{
 			Name:       adminData.Name,
 			Username:   adminData.Username,
@@ -52,7 +55,9 @@ func (s *service) Login(username string, isAdmin bool) (*user.User, error) {
 		if err != nil {
 			return nil, err
 		}
-
+		if userData == nil {
+			return nil, errors.New("data not found")
+		}
 		result = user.User{
 			Name:       userData.Name,
 			Username:   userData.Username,
